@@ -1,6 +1,19 @@
 {
-  "name": "lets-walk-inside-vite",
-  "version": "0.0.0",
+  "name": "vite-starter-prendy",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugoMcPhee/vite-starter-prendy.git"
+  },
+  "keywords": [
+    "vite",
+    "template",
+    "prendy",
+    "react",
+    "babylonjs"
+  ],
+  "author": "Hugo McPhee",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
