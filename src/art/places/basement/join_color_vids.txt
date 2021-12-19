@@ -1,0 +1,4 @@
+# tells the video joiner the names and order of the color videos 
+file 'first_cam_start.mp4'
+file 'waterfall_cam_start.mp4'
+
