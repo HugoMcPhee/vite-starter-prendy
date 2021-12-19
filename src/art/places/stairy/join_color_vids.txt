@@ -1,0 +1,6 @@
+# tells the video joiner the names and order of the color videos 
+file 'room_camera_start.mp4'
+file 'left_door_camera_start.mp4'
+file 'downstair_camera_start.mp4'
+file 'stairs_camera_start.mp4'
+
