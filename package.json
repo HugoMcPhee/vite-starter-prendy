@@ -1,6 +1,7 @@
 {
   "name": "vite-starter-prendy",
   "version": "0.1.0",
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HugoMcPhee/vite-starter-prendy.git"
@@ -25,10 +26,10 @@
     "@babylonjs/inspector": "5.0.0-alpha.65",
     "@babylonjs/loaders": "5.0.0-alpha.65",
     "chootils": "^0.3.3",
-    "concep": "^0.6.1",
-    "concep-movers": "^0.5.5",
+    "pietem": "^0.6.3",
+    "pietem-movers": "^0.5.6",
     "delay": "^5.0.0",
-    "prendy": "^0.7.14",
+    "prendy": "^0.7.15",
     "react": "^17.0.2",
     "react-babylonjs": "3.0.22",
     "react-dom": "^17.0.2",
