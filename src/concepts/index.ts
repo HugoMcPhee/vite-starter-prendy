@@ -1,7 +1,7 @@
 import { PRENDY_ART } from "art";
 import { PRENDY_OPTIONS } from "art/options";
 import { prendyFlowNames, makePrendyConcepts } from "prendy";
-import { ConceptsHelperTypes, createConcepts } from "concep";
+import { ConceptsHelperTypes, createConcepts } from "pietem";
 import story from "./story";
 
 export const allConcepts = {
