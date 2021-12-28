@@ -1,16 +1,16 @@
 import { PRENDY_ART } from "art";
 import { PRENDY_OPTIONS } from "art/options";
-import { prendyFlowNames, makePrendyConcepts } from "prendy";
-import { ConceptsHelperTypes, createConcepts } from "pietem";
+import { prendyStepNames, makePrendyStores } from "prendy";
+import { StoreHelperTypes, createStoreHelpers } from "pietem";
 import story from "./story";
 
-export const allConcepts = {
+export const stores = {
   story,
-  ...makePrendyConcepts(PRENDY_OPTIONS, PRENDY_ART),
+  ...makePrendyStores(PRENDY_OPTIONS, PRENDY_ART),
 };
 
-export const allConcepFuncs = createConcepts(allConcepts, {
-  flowNames: prendyFlowNames,
+export const storeHelpers = createStoreHelpers(stores, {
+  stepNames: prendyStepNames,
 });
 export const {
   setState,
@@ -31,11 +31,11 @@ export const {
   stopEffect,
   addItem,
   removeItem,
-} = allConcepFuncs;
+} = storeHelpers;
 
 export type ItemType = keyof ReturnType<typeof getState>;
 
-type HelperType<T extends ItemType> = ConceptsHelperTypes<
+type HelperType<T extends ItemType> = StoreHelperTypes<
   typeof getState,
   typeof getRefs,
   T

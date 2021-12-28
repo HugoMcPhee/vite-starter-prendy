@@ -1,12 +1,12 @@
 import { stylesBySpecialText } from "art/options";
 import { PickupName } from "art/pickups";
-import { getRefs, onNextTick, setState } from "concepts";
+import { getRefs, onNextTick, setState } from "stores";
 import {
   makeOnUsePickupAtTrigger,
   makeOnUsePickupGenerally,
   makeOnUsePickupToTalk,
   showSpeech,
-} from "concepts/story/utils";
+} from "stores/story/utils";
 
 export const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   stairy: {

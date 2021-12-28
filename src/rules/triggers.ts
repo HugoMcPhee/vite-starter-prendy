@@ -1,4 +1,4 @@
-import { hideMiniBubble, makeTriggerRules } from "concepts/story/utils";
+import { hideMiniBubble, makeTriggerRules } from "stores/story/utils";
 
 export const triggerRules = makeTriggerRules({
   stairy: {

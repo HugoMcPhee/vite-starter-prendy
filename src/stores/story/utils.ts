@@ -3,7 +3,7 @@ import { characterNames } from "art/characters";
 import { dollNames } from "art/dolls";
 import { PRENDY_OPTIONS } from "art/options";
 import { placeInfoByName } from "art/places";
-import { allConcepFuncs, allConcepts } from "concepts";
+import { storeHelpers, stores } from "stores";
 import {
   makeAllStoryRuleMakers,
   makePrendyStoryHelpers,
@@ -58,9 +58,9 @@ export const {
   hideSticker,
   moveSticker,
   showSticker,
-} = makePrendyStoryHelpers<typeof allConcepFuncs, typeof allConcepts>(
-  allConcepFuncs,
-  allConcepts,
+} = makePrendyStoryHelpers<typeof storeHelpers, typeof stores>(
+  storeHelpers,
+  stores,
   PRENDY_OPTIONS,
   PRENDY_ART
 );
@@ -71,11 +71,11 @@ export const {
   getGlobalState,
   setGlobalState,
   setStoryState,
-} = makeOtherUsefulPrendyUtils(allConcepFuncs);
+} = makeOtherUsefulPrendyUtils(storeHelpers);
 
 export const { get2DAngleBetweenCharacters } = makePrendyStoryUtils(
-  allConcepFuncs,
-  allConcepts
+  storeHelpers,
+  stores
 );
 
 export const {
@@ -92,8 +92,8 @@ export const {
   makeStoryPartRules,
   makeTouchRules,
   makeTriggerRules,
-} = makeAllStoryRuleMakers<typeof allConcepFuncs>(
-  allConcepFuncs,
+} = makeAllStoryRuleMakers<typeof storeHelpers>(
+  storeHelpers,
   placeInfoByName,
   characterNames,
   dollNames

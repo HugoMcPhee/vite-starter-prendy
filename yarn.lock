@@ -420,10 +420,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.33":
+"@types/react@*":
   version "17.0.37"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.37.tgz#6884d0aa402605935c397ae689deed115caad959"
   integrity sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.38":
+  version "17.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -789,12 +798,12 @@ pietem-movers@^0.5.6:
   resolved "https://registry.yarnpkg.com/pietem-movers/-/pietem-movers-0.5.6.tgz#96e75cca1a0ceb67204027e3dde918ec3d925361"
   integrity sha512-xCRnfZnZ1n26HqoVDJGRvF+Ck+WLoSwJwS+sb7AuvVv96LBMbQBx7x8X+6WoNfLGlfSX+1yHn1/QbDcxlYy36Q==
 
-pietem@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/pietem/-/pietem-0.6.3.tgz#e63ca9078e637c2eb4660aa086aec472fe51520e"
-  integrity sha512-wFN55APOct356jzQKs2R90N4H50TfD1vuskKhoYQEVRcd1usfWNoqB1T4SA7GzE3agU2Vjr4k/25MJ0lk20anQ==
+pietem@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/pietem/-/pietem-0.8.3.tgz#d72f4425d499cbda820d46bae460d274ae2d89ea"
+  integrity sha512-PwcNv+OiUqvPF8Gnwb0LOJ0yV4EV+s1qMghiAP7ouxmVrjgQLjgiInB2fJ5slk9PwvO7PK3tNcsf2iR+8XWpCA==
 
-postcss@^8.3.11:
+postcss@^8.4.5:
   version "8.4.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.5.tgz#bae665764dfd4c6fcc24dc0fdf7e7aa00cc77f95"
   integrity sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==
@@ -803,10 +812,10 @@ postcss@^8.3.11:
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
 
-prendy@^0.7.15:
-  version "0.7.15"
-  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.7.15.tgz#19d3a56f56ff573756c7df9ba56c9b36ae784859"
-  integrity sha512-2mGdwyq2PEeSrKFnFdstggXw04Ie2Ih4eB4GoPlLm0Xlb+gDf3lqwWWriLMpU3rviS+Oy/0Q5RkqRdtacXXAMA==
+prendy@^0.7.20:
+  version "0.7.20"
+  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.7.20.tgz#c26956629d3a15dadaa47d9de9f599655c345153"
+  integrity sha512-rMeNLTiimd2sfUQuhd+FRJNXUSvDYMg3Z7a4htUFPCWwFqVuZ2x/p/Q972W09aaPYucqL0FQhi/4ffZ8Mu85vQ==
 
 react-babylonjs@3.0.22:
   version "3.0.22"
@@ -845,10 +854,10 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-spring@^9.2.4:
-  version "9.3.2"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.3.2.tgz#1456ef1ab1a3997c6c39693a9fd18cfd46c92930"
-  integrity sha512-LMFgjvTJVg2ltthzgJcZ7siOdRig7L8wJZIHrc7p6ss4AaJ446xHzm9L2ZQha1ZC9QVY8/e6XfLhMTFAG6dtjw==
+react-spring@^9.3.3:
+  version "9.3.3"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.3.3.tgz#2982065385cf4ecf9c98f0f6976c603a5453f3ba"
+  integrity sha512-S6ZufQylwxwjavylFaU/oqBUZQX2ZvH2bpU3NSoYY8JlArH5sEeKMSzqME3fdp3+AwfOaxPpo25zSFGgytXY3Q==
   dependencies:
     "@react-spring/core" "~9.3.0"
     "@react-spring/konva" "~9.3.0"
@@ -982,13 +991,13 @@ vite-tsconfig-paths@^3.3.17:
     recrawl-sync "^2.0.3"
     tsconfig-paths "^3.9.0"
 
-vite@^2.7.2:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.7.3.tgz#e983cf4f71f42c192436bfcad1b75932642da293"
-  integrity sha512-GAY1P+9fLJOju1SRm8+hykVnEXog+E+KXuqqyMBQDriKCUIKzWnPn142yNNhSdf/ixYGYdUa5ce3A8WaEajzGw==
+vite@^2.7.7:
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.7.7.tgz#f2f1af5f9fc409053130261416000447347bc203"
+  integrity sha512-Nm4ingl//gMSj/p1aCBHuTc5Fd8W8Mwdci/HUvqCVq8xaJqF7z08S/LRq1M9kS0jRfJk1/f/CwUyQAr6YgsOLw==
   dependencies:
     esbuild "^0.13.12"
-    postcss "^8.3.11"
+    postcss "^8.4.5"
     resolve "^1.20.0"
     rollup "^2.59.0"
   optionalDependencies:
