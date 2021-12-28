@@ -1,4 +1,4 @@
-import { StoryPartName } from "concepts/story/consts";
+import { StoryPartName } from "stores/story/consts";
 import { CharacterName, characterNames, characterOptions } from "./characters";
 import { DollName, dollNames, dollOptions } from "./dolls";
 

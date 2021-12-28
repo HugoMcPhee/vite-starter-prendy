@@ -5,7 +5,7 @@ import {
   makePlaceNotLoadedRules,
   stopAllMusic,
   takePickup,
-} from "concepts/story/utils";
+} from "stores/story/utils";
 
 export const placeLoadRules = makePlaceLoadRules(
   // at start of any places

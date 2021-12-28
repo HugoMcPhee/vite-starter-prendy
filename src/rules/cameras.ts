@@ -1,4 +1,4 @@
-import { makeCamChangeRules } from "concepts/story/utils";
+import { makeCamChangeRules } from "stores/story/utils";
 
 export const camChangeRules = makeCamChangeRules({
   basement: {

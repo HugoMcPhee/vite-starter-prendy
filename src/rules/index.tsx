@@ -1,10 +1,10 @@
-import { getRefs, getState, makeRules, setState as set } from "concepts";
+import { getRefs, getState, makeRules, setState as set } from "stores";
 import {
   enableMovement,
   setCamera,
   setDollToSpot,
   showStoryView,
-} from "concepts/story/utils";
+} from "stores/story/utils";
 import delay from "delay";
 import { camChangeRules } from "./cameras";
 import { onInteractAtTalk, onInteractAtTrigger } from "./interact";
@@ -15,9 +15,9 @@ import { storyPartRules } from "./storyParts";
 import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
 
-export const storyRules = makeRules((addItemEffect, addEffect) => ({
-  whenInteractButtonClicked: addItemEffect({
-    onItemEffect() {
+export const storyRules = makeRules(({ itemEffect, effect }) => ({
+  whenInteractButtonClicked: itemEffect({
+    run() {
       onInteractAtTrigger();
       onInteractAtTalk();
     },
@@ -25,15 +25,15 @@ export const storyRules = makeRules((addItemEffect, addEffect) => ({
       prop: "interactButtonPressTime",
       type: "players",
     },
-    // whenToRun: "subscribe",
-    flow: "story", // story insead of input, so virtual stick animations dont overwrite the story click ones
+    // atStepEnd: true,
+    step: "story", // story insead of input, so virtual stick animations dont overwrite the story click ones
   }),
   //
 
   //
 
-  whenPressCheckpointButton: addItemEffect({
-    async onItemEffect({ newValue }) {
+  whenPressCheckpointButton: itemEffect({
+    async run({ newValue }) {
       const { exampleStoryToggle } = getState().story.main;
       const { nowPlaceName, playerMovingPaused } = getState().global.main;
 

@@ -1,4 +1,4 @@
-import { makeTouchRules } from "concepts/story/utils";
+import { makeTouchRules } from "stores/story/utils";
 
 export const touchRules = makeTouchRules({
   walker() {},

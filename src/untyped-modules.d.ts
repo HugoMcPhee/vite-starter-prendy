@@ -7,8 +7,12 @@ declare module "*.mp4" {}
 
 declare module "*.mp3" {}
 
-declare module "*.glb" {}
+declare module "*.glb" {
+  export default string;
+}
 
 declare module "*.hdr" {}
 
-declare module "*.env" {}
+declare module "*.env" {
+  export default string;
+}

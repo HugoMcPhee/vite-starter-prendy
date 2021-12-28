@@ -1,8 +1,8 @@
 import { PRENDY_ART } from "art";
 import { PRENDY_OPTIONS } from "art/options";
 import { makePrendyApp } from "prendy";
-import { allConcepFuncs, allConcepts } from "concepts";
-import StartAndStopConcepts from "concepts/start";
+import { storeHelpers, stores } from "stores";
+import StartAndStopRules from "stores/start";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -10,8 +10,8 @@ import "./index.css";
 // startConcepts()
 
 const PrendyApp = makePrendyApp(
-  allConcepFuncs,
-  allConcepts,
+  storeHelpers,
+  stores,
   PRENDY_OPTIONS,
   PRENDY_ART
 );
@@ -19,7 +19,7 @@ const PrendyApp = makePrendyApp(
 ReactDOM.render(
   <React.StrictMode>
     <PrendyApp>{/* <Custom Stuff /> */}</PrendyApp>
-    <StartAndStopConcepts />
+    <StartAndStopRules />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,7 +1,7 @@
 import {
   makeOnInteractAtTrigger,
   makeOnInteractToTalk,
-} from "concepts/story/utils";
+} from "stores/story/utils";
 
 export const onInteractAtTrigger = makeOnInteractAtTrigger({
   stairy: {
