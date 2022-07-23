@@ -1,4 +1,4 @@
-import { ModelName, modelNames } from "art/models";
+import { ModelName, modelNames } from "assets/models/models";
 
 // function so dollOptions can have autocomplete and still have an inferrable type
 function add<T_Model extends ModelName>(options: { model: T_Model }) {
@@ -7,9 +7,7 @@ function add<T_Model extends ModelName>(options: { model: T_Model }) {
 
 function makeDefaultDollOptionsFromModels() {
   return modelNames.reduce(
-    (options, modelName) => (
-      (options[modelName] = add({ model: modelName })), options
-    ),
+    (options, modelName) => ((options[modelName] = add({ model: modelName })), options),
     {} as Record<ModelName, { model: ModelName }>
   );
 }

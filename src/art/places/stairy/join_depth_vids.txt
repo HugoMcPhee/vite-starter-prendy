@@ -1,6 +1,0 @@
-# tells the video joiner the names and order of the depth videos 
-file 'room_camera_start_depth.mp4'
-file 'left_door_camera_start_depth.mp4'
-file 'downstair_camera_start_depth.mp4'
-file 'stairs_camera_start_depth.mp4'
-

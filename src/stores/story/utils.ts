@@ -1,9 +1,9 @@
-import { PRENDY_ART } from "art";
-import { characterNames } from "art/characters";
-import { dollNames } from "art/dolls";
-import { PRENDY_OPTIONS } from "art/options";
-import { placeInfoByName } from "art/places";
-import { storeHelpers, stores } from "stores";
+import { PRENDY_ASSETS } from "assets/assets";
+import { characterNames } from "assets/characters";
+import { dollNames } from "assets/dolls";
+import { PRENDY_OPTIONS } from "assets/options";
+import { placeInfoByName } from "assets/places/places";
+import { storeHelpers, stores } from "stores/stores";
 import {
   makeAllStoryRuleMakers,
   makePrendyStoryHelpers,
@@ -58,11 +58,10 @@ export const {
   hideSticker,
   moveSticker,
   showSticker,
-} = makePrendyStoryHelpers<typeof storeHelpers, typeof stores>(storeHelpers, stores, PRENDY_OPTIONS, PRENDY_ART);
+} = makePrendyStoryHelpers<typeof storeHelpers, typeof stores>(storeHelpers, stores, PRENDY_OPTIONS, PRENDY_ASSETS);
 
-export const { getEngine, getScene, getGlobalState, setGlobalState, setStoryState } = makeOtherUsefulPrendyUtils(
-  storeHelpers
-);
+export const { getEngine, getScene, getGlobalState, setGlobalState, setStoryState } =
+  makeOtherUsefulPrendyUtils(storeHelpers);
 
 export const { get2DAngleBetweenCharacters } = makePrendyStoryUtils(storeHelpers, stores);
 

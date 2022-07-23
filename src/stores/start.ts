@@ -1,15 +1,15 @@
-import { PRENDY_ART } from "art";
-import { PRENDY_OPTIONS, fontNames } from "art/options";
-import { storeHelpers, stores } from "stores";
+import { PRENDY_ASSETS } from "assets/assets";
+import { PRENDY_OPTIONS, fontNames } from "assets/options";
+import { storeHelpers, stores } from "stores/stores";
 import { makeStartPrendyRules } from "prendy";
 import { useEffect } from "react";
-import { startAllOtherStoryRules, storyRules } from "rules";
+import { startAllOtherStoryRules, storyRules } from "rules/rules";
 
 const startPrendyRules = makeStartPrendyRules<typeof storeHelpers, typeof stores>(
   storeHelpers,
   stores,
   PRENDY_OPTIONS,
-  PRENDY_ART
+  PRENDY_ASSETS
 );
 
 export function startRules() {

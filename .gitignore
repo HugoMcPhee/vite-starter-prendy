@@ -17,4 +17,4 @@ yarn-error.log*
 # videos
 *.mp4
 !backdrops.mp4
-!/src/art/speechvids/*.mp4
+!/src/assets/speechvids/*.mp4
