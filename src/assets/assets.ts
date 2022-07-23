@@ -11,10 +11,10 @@ import {
   modelInfoByName,
   ModelName,
   modelNames,
-} from "./models";
-import { musicFiles, MusicName, musicNames } from "./music";
+} from "./models/models";
+import { musicFiles, MusicName, musicNames } from "./music/music";
 import { PRENDY_OPTIONS, FontName, fontNames } from "./options";
-import { PickupName, pickupsInfo } from "./pickups";
+import { PickupName, pickupsInfo } from "./pickups/pickups";
 import {
   AnyCameraName,
   AnySegmentName,
@@ -29,11 +29,11 @@ import {
   SpotNameByPlace,
   TriggerNameByPlace,
   WallNameByPlace,
-} from "./places";
-import { soundFiles, SoundName, soundNames } from "./sounds";
-import { speechVidFiles, SpeechVidName } from "./speechvids";
+} from "./places/places";
+import { soundFiles, SoundName, soundNames } from "./sounds/sounds";
+import { speechVidFiles, SpeechVidName } from "./speechvids/speechvids";
 
-export const PRENDY_ART = {
+export const PRENDY_ASSETS = {
   placeInfoByName,
   modelInfoByName,
   dollOptions,
@@ -65,7 +65,7 @@ type PickupsInfo = typeof pickupsInfo;
 
 type PrendyOptions = typeof PRENDY_OPTIONS;
 
-export type LocalArtTypes = {
+export type LocalAssetsTypes = {
   PrendyOptions: PrendyOptions;
   PlaceInfoByName: PlaceInfoByName;
   ModelInfoByName: ModelInfoByName;
@@ -105,5 +105,5 @@ export type LocalArtTypes = {
 
 declare module "prendy" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface CustomArtTypes extends LocalArtTypes {}
+  interface CustomAssetsTypes extends LocalAssetsTypes {}
 }

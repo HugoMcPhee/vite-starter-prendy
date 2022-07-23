@@ -1,10 +1,5 @@
-import { getRefs, getState, makeRules, setState as set } from "stores";
-import {
-  enableMovement,
-  setCamera,
-  setDollToSpot,
-  showStoryView,
-} from "stores/story/utils";
+import { getRefs, getState, makeRules, setState as set } from "stores/stores";
+import { enableMovement, setCamera, setDollToSpot, showStoryView } from "stores/story/utils";
 import delay from "delay";
 import { camChangeRules } from "./cameras";
 import { onInteractAtTalk, onInteractAtTrigger } from "./interact";

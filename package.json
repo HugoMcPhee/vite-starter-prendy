@@ -1,6 +1,6 @@
 {
   "name": "vite-starter-prendy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": ".",
   "repository": {
     "type": "git",
@@ -22,29 +22,29 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@babylonjs/core": "5.0.0-alpha.65",
-    "@babylonjs/gui": "5.0.0-alpha.12",
-    "@babylonjs/inspector": "5.0.0-alpha.65",
-    "@babylonjs/loaders": "5.0.0-alpha.65",
+    "@babylonjs/core": "5.16.0",
+    "@babylonjs/gui": "5.16.0",
+    "@babylonjs/inspector": "5.16.0",
+    "@babylonjs/loaders": "5.16.0",
     "chootils": "^0.3.4",
     "delay": "^5.0.0",
     "pietem": "^0.8.5",
     "pietem-movers": "^0.5.7",
-    "prendy": "^0.8.0",
-    "react": "^17.0.2",
-    "react-babylonjs": "3.0.22",
-    "react-dom": "^17.0.2",
+    "prendy": "^0.9.0",
+    "react": "^18.2.0",
+    "react-babylonjs": "3.1.6",
+    "react-dom": "^18.2.0",
     "react-promise-suspense": "^0.3.3",
-    "react-spring": "^9.3.3",
+    "react-spring": "^9.5.2",
     "stringz": "^2.1.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.10",
-    "@vitejs/plugin-react": "^1.0.7",
-    "typescript": "^4.4.4",
-    "vite": "^2.7.7",
-    "vite-tsconfig-paths": "^3.3.17"
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.2",
+    "vite-tsconfig-paths": "^3.5.0"
   },
   "prettier": {
     "printWidth": 120

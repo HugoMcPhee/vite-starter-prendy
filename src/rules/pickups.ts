@@ -1,6 +1,6 @@
-import { stylesBySpecialText } from "art/options";
-import { PickupName } from "art/pickups";
-import { getRefs, onNextTick, setState } from "stores";
+import { stylesBySpecialText } from "assets/options";
+import { PickupName } from "assets/pickups/pickups";
+import { getRefs, onNextTick, setState } from "stores/stores";
 import {
   makeOnUsePickupAtTrigger,
   makeOnUsePickupGenerally,
