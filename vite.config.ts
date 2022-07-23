@@ -8,5 +8,6 @@ export default defineConfig({
   assetsInclude: ["**/*.gltf", "**/*.glb", "**/*.env", "**/*.mp4"],
   server: {
     open: true,
+    host: true,
   },
 });

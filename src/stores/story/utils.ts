@@ -8,8 +8,8 @@ import {
   makeAllStoryRuleMakers,
   makePrendyStoryHelpers,
   makeOtherUsefulPrendyUtils,
+  makePrendyStoryUtils,
 } from "prendy";
-import { makePrendyStoryUtils } from "prendy/dist/utils/story/utils";
 
 export const {
   // characters
@@ -58,25 +58,13 @@ export const {
   hideSticker,
   moveSticker,
   showSticker,
-} = makePrendyStoryHelpers<typeof storeHelpers, typeof stores>(
-  storeHelpers,
-  stores,
-  PRENDY_OPTIONS,
-  PRENDY_ART
+} = makePrendyStoryHelpers<typeof storeHelpers, typeof stores>(storeHelpers, stores, PRENDY_OPTIONS, PRENDY_ART);
+
+export const { getEngine, getScene, getGlobalState, setGlobalState, setStoryState } = makeOtherUsefulPrendyUtils(
+  storeHelpers
 );
 
-export const {
-  getEngine,
-  getScene,
-  getGlobalState,
-  setGlobalState,
-  setStoryState,
-} = makeOtherUsefulPrendyUtils(storeHelpers);
-
-export const { get2DAngleBetweenCharacters } = makePrendyStoryUtils(
-  storeHelpers,
-  stores
-);
+export const { get2DAngleBetweenCharacters } = makePrendyStoryUtils(storeHelpers, stores);
 
 export const {
   makeCamChangeRules,
@@ -92,9 +80,4 @@ export const {
   makeStoryPartRules,
   makeTouchRules,
   makeTriggerRules,
-} = makeAllStoryRuleMakers<typeof storeHelpers>(
-  storeHelpers,
-  placeInfoByName,
-  characterNames,
-  dollNames
-);
+} = makeAllStoryRuleMakers<typeof storeHelpers>(storeHelpers, placeInfoByName, characterNames, dollNames);

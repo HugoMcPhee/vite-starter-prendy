@@ -499,10 +499,10 @@ char-regex@^1.0.2:
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
   integrity sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==
 
-chootils@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/chootils/-/chootils-0.3.3.tgz#0090e8dc64abb5741d98fdaa46b9f72903920fc5"
-  integrity sha512-9Y8KW3XYCsLDMfKoNwVeQmqDu2wOBGK8U+mvFQaQFbSp5vLk4Rwe3uZkqNLjvwln0llqxVF2oaevsTArKyOJVQ==
+chootils@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/chootils/-/chootils-0.3.4.tgz#31bb3a355accea0bca96a751366c66c79af75b1b"
+  integrity sha512-3uasy16pSewwfisUxKZYnYWLlKDMNlIOHv60XdopYQ0EVvMwibKqzG/diQbNfMlOWfB0tbZ3RCUh9OXNptXsPw==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -793,15 +793,15 @@ picomatch@^2.2.2:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
 
-pietem-movers@^0.5.6:
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/pietem-movers/-/pietem-movers-0.5.6.tgz#96e75cca1a0ceb67204027e3dde918ec3d925361"
-  integrity sha512-xCRnfZnZ1n26HqoVDJGRvF+Ck+WLoSwJwS+sb7AuvVv96LBMbQBx7x8X+6WoNfLGlfSX+1yHn1/QbDcxlYy36Q==
+pietem-movers@^0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/pietem-movers/-/pietem-movers-0.5.7.tgz#05d374cb1369e8aac565aed2f7415d1de0312e90"
+  integrity sha512-JB8lHZwpHOJxRnrEBh5f2nQTa5boK58wIskQIV+ySeqmbDU+L3xeFMVxsWEAVQXpgIuzxfH8SkrAuwvkyUdjRQ==
 
-pietem@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/pietem/-/pietem-0.8.3.tgz#d72f4425d499cbda820d46bae460d274ae2d89ea"
-  integrity sha512-PwcNv+OiUqvPF8Gnwb0LOJ0yV4EV+s1qMghiAP7ouxmVrjgQLjgiInB2fJ5slk9PwvO7PK3tNcsf2iR+8XWpCA==
+pietem@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/pietem/-/pietem-0.8.5.tgz#9cf18202081914cc4aa907e9533ff4b81ce2be7a"
+  integrity sha512-kNoPlZzCQzpSPiu0O6pQ9SB5CoCG3YhVKUnTKEWjhHSkUq4egCSMCabwzbtnoKRozGFJh19uhKTGiwbB6bb13g==
 
 postcss@^8.4.5:
   version "8.4.5"
@@ -812,10 +812,10 @@ postcss@^8.4.5:
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
 
-prendy@^0.7.20:
-  version "0.7.20"
-  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.7.20.tgz#c26956629d3a15dadaa47d9de9f599655c345153"
-  integrity sha512-rMeNLTiimd2sfUQuhd+FRJNXUSvDYMg3Z7a4htUFPCWwFqVuZ2x/p/Q972W09aaPYucqL0FQhi/4ffZ8Mu85vQ==
+prendy@^0.8.0:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.8.3.tgz#54dea73c1ea379e1a44e404b97fde07b172658df"
+  integrity sha512-8YQYaB/ifY5KOkjZLEFtvaVQyMLkVhY4CbmWy2F0370HaehCSxYJjNxmnKgi66HTWmgICdxd9pvd6kADLaQnSA==
 
 react-babylonjs@3.0.22:
   version "3.0.22"
