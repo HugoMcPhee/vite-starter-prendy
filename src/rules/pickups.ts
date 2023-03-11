@@ -5,6 +5,7 @@ import {
   makeOnUsePickupAtTrigger,
   makeOnUsePickupGenerally,
   makeOnUsePickupToTalk,
+  showMiniBubble,
   showSpeech,
 } from "stores/story/utils";
 
@@ -28,6 +29,7 @@ export const onUsePickupGenerally = makeOnUsePickupGenerally({
     } else {
     }
     await showSpeech("a big key 🗝️", { stylesBySpecialText });
+    // await showMiniBubble("🗝️");
   },
 });
 

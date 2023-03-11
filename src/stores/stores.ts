@@ -11,6 +11,7 @@ export const stores = {
 
 export const storeHelpers = createStoreHelpers(stores, {
   stepNames: prendyStepNames,
+  framerate: "auto",
 });
 export const {
   setState,
