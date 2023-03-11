@@ -1,7 +1,7 @@
 import { PRENDY_ASSETS } from "assets/assets";
 import { PRENDY_OPTIONS } from "assets/options";
 import { prendyStepNames, makePrendyStores } from "prendy";
-import { StoreHelperTypes, createStoreHelpers } from "pietem";
+import { StoreHelperTypes, createStoreHelpers } from "repond";
 import story from "./story/story";
 
 export const stores = {
