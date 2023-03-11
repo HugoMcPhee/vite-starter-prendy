@@ -14,7 +14,7 @@ export const PRENDY_OPTIONS = getPrendyOptions({
   zoomLevels: { default: 1.1, max: 2 },
   walkSpeed: WALK_SPEEDS.normal,
   animationSpeed: 1,
-  headHeightOffset: 0.7,
+  headHeightOffset: 1.5,
 
   doorsInfo: {
     stairy: {
@@ -29,7 +29,7 @@ export const PRENDY_OPTIONS = getPrendyOptions({
       the_door: {
         toPlace: "stairy",
         toSegment: "start",
-        toCam: "room_camera",
+        toCam: "downstair_camera",
         toSpot: "bottom_stairs_spot",
       },
     },

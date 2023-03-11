@@ -1,7 +1,7 @@
-import { getRefs, getState, makeRules, setState as set } from "stores/stores";
+import { getRefs, getState, makeRules, setState as set, setState } from "stores/stores";
 import { enableMovement, setCamera, setDollToSpot, showStoryView } from "stores/story/utils";
 import delay from "delay";
-import { camChangeRules } from "./cameras";
+import { camChangeRules, camLeaveRules } from "./cameras";
 import { onInteractAtTalk, onInteractAtTrigger } from "./interact";
 import { makePickupsRules } from "./pickups";
 import { placeLoadRules, placeNotLoadedRules } from "./places";
@@ -9,6 +9,11 @@ import { camSegmentRules } from "./segments";
 import { storyPartRules } from "./storyParts";
 import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
+
+export const canvasRefs = {
+  ctx: null as CanvasRenderingContext2D | null | undefined,
+  frameCounter: 0,
+};
 
 export const storyRules = makeRules(({ itemEffect, effect }) => ({
   whenInteractButtonClicked: itemEffect({
@@ -57,7 +62,23 @@ export const storyRules = makeRules(({ itemEffect, effect }) => ({
     },
     check: { prop: "KeyZ", type: "keyboards" },
   }),
-  //
+  // Enable to see framerate
+  // showFrames: itemEffect({
+  //   run({ itemState: playerState, frameDuration }) {
+  //     // console.log(frameDuration);
+  //     if (!canvasRefs.ctx) return;
+  //     canvasRefs.ctx.fillStyle = "#e0fcd3cc";
+  //     canvasRefs.ctx?.fillRect(canvasRefs.frameCounter, frameDuration, 1, 1); // fill in the pixel at (10,10)
+
+  //     canvasRefs.frameCounter += 1;
+  //     if (canvasRefs.frameCounter > 200) {
+  //       canvasRefs.ctx?.clearRect(0, 0, 200, 100);
+  //       canvasRefs.frameCounter = 0;
+  //     }
+  //   },
+  //   step: "default",
+  //   check: { type: "global", name: "main", prop: ["frameTick"] },
+  // }),
 }));
 
 // Maybe
@@ -71,6 +92,7 @@ export function startAllOtherStoryRules() {
   }
   storyPartRules.startAll();
   camChangeRules.startAll();
+  camLeaveRules.startAll();
   triggerRules.startAll();
   triggerLeaveRules.startAll();
   touchRules.startAll();
@@ -82,6 +104,7 @@ export function startAllOtherStoryRules() {
   return function stopAllOtherStoryRules() {
     storyPartRules.stopAll();
     camChangeRules.stopAll();
+    camLeaveRules.stopAll();
     triggerRules.stopAll();
     triggerLeaveRules.stopAll();
     touchRules.stopAll();
