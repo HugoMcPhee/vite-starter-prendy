@@ -1,5 +1,5 @@
-import { makeStoryPartRules } from "stores/story/utils";
+import { prendy } from "stores/stores";
 
-export const storyPartRules = makeStoryPartRules({
+export const storyPartRules = prendy.rules.makeStoryPartRules({
   async "00_before_start"() {},
 });

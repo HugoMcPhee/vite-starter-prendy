@@ -1,19 +1,19 @@
-import { StoryPartName } from "stores/story/consts";
+import { storeHelpers, stores } from "stores/stores";
+import { StoryPartName } from "stores/story";
 import { CharacterName, characterNames, characterOptions } from "./characters";
 import { DollName, dollNames, dollOptions } from "./dolls";
-
 import {
   AnimationNameByModel,
   AnyAnimationName,
   BoneNameByModel,
   MaterialNameByModel,
   MeshNameByModel,
-  modelInfoByName,
   ModelName,
+  modelInfoByName,
   modelNames,
 } from "./models/models";
-import { musicFiles, MusicName, musicNames } from "./music/music";
-import { PRENDY_OPTIONS, FontName, fontNames } from "./options";
+import { MusicName, musicFiles, musicNames } from "./music/music";
+import { FontName, PRENDY_OPTIONS, fontNames } from "./options";
 import { PickupName, pickupsInfo } from "./pickups/pickups";
 import {
   AnyCameraName,
@@ -21,17 +21,17 @@ import {
   AnySpotName,
   AnyTriggerName,
   CameraNameByPlace,
-  placeInfoByName,
   PlaceName,
-  placeNames,
   SegmentNameByPlace,
   SoundspotNameByPlace,
   SpotNameByPlace,
   TriggerNameByPlace,
   WallNameByPlace,
+  placeInfoByName,
+  placeNames,
 } from "./places/places";
-import { soundFiles, SoundName, soundNames } from "./sounds/sounds";
-import { speechVidFiles, SpeechVidName } from "./speechvids/speechvids";
+import { SoundName, soundFiles, soundNames } from "./sounds/sounds";
+import { SpeechVidName, speechVidFiles } from "./speechvids/speechvids";
 
 export const PRENDY_ASSETS = {
   placeInfoByName,
@@ -103,7 +103,12 @@ export type LocalAssetsTypes = {
   PickupsInfo: PickupsInfo;
 };
 
+type LocalStoreHelpers = typeof storeHelpers;
+type LocalStores = typeof stores;
+
 declare module "prendy" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface CustomAssetsTypes extends LocalAssetsTypes {}
+  interface CustomStoreHelpers extends LocalStoreHelpers {}
+  interface CustomPrendyStores extends LocalStores {}
 }
