@@ -1,10 +1,10 @@
-import { getPrendyOptions } from "prendy";
+import { makePrendyOptions } from "prendy";
 import { CSSProperties } from "react";
 
 // export const WALK_SPEEDS = { normal: 14, swimming: 4 };
 export const WALK_SPEEDS = { normal: 6, swimming: 2 };
 
-export const PRENDY_OPTIONS = getPrendyOptions({
+export const PRENDY_OPTIONS = makePrendyOptions({
   place: "stairy",
   segment: "start",
   camera: "room_camera",
@@ -39,11 +39,11 @@ export const PRENDY_OPTIONS = getPrendyOptions({
     stairy: ["walker"],
   },
   hasInteracting: false,
-  hasJumping: false,
+  hasJumping: true,
 });
 
 export const fontNames = ["Jua", "Pacifico"] as const; // font names from google fonts
-export type FontName = typeof fontNames[number];
+export type FontName = (typeof fontNames)[number];
 
 // project stuff?
 

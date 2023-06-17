@@ -1,28 +1,26 @@
 import { PRENDY_ASSETS } from "assets/assets";
 import { PRENDY_OPTIONS } from "assets/options";
-import { makePrendyApp } from "prendy";
-import { storeHelpers, stores } from "stores/stores";
-import StartAndStopRules from "stores/start";
+import { makeDebugFrameRate, makePrendyApp } from "prendy";
 import React from "react";
 import ReactDOM from "react-dom";
+import { customRules } from "rules/rules";
+import { storeHelpers, stores } from "stores/stores";
 import "./index.css";
-import { canvasRefs } from "rules/rules";
 
-const PrendyApp = makePrendyApp(storeHelpers, stores, PRENDY_OPTIONS, PRENDY_ASSETS);
+const PrendyApp = makePrendyApp({
+  prendyAssets: PRENDY_ASSETS,
+  prendyOptions: PRENDY_OPTIONS,
+  stores,
+  storeHelpers,
+  customRules,
+});
+
+const DebugFrameRate = makeDebugFrameRate(storeHelpers);
 
 ReactDOM.render(
   <React.StrictMode>
-    <PrendyApp>{/* <Custom Stuff /> */}</PrendyApp>
-    <StartAndStopRules />
-    {/* <canvas
-      ref={(ref) => {
-        canvasRefs.ctx = ref?.getContext("2d");
-      }}
-      id="fpscanvas"
-      width="200px"
-      height="100px"
-      style={{ position: "absolute", bottom: 0, right: 0, width: "200px", height: "100px", zIndex: 10000 }}
-    ></canvas> */}
+    <PrendyApp>{/* Add custom components here, like minigames or particles */}</PrendyApp>
+    {/* <DebugFrameRate /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
