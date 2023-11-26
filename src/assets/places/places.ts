@@ -1,5 +1,5 @@
-import { placeInfo as basementInfo } from "./basement";
-import { placeInfo as stairyInfo } from "./stairy";
+import { placeInfo as basementInfo } from "./basement/basement";
+import { placeInfo as stairyInfo } from "./stairy/stairy";
 
 export const placeInfoByName = {
   basement: basementInfo,

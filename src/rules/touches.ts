@@ -1,4 +1,6 @@
-import { makeTouchRules } from "stores/story/utils";
+import { prendy } from "stores/stores";
+
+const { makeTouchRules } = prendy.rules;
 
 export const touchRules = makeTouchRules({
   walker() {},

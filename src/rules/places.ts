@@ -1,34 +1,31 @@
-import {
-  enableMovement,
-  hideMiniBubble,
-  makePlaceLoadRules,
-  makePlaceNotLoadedRules,
-  stopAllMusic,
-  takePickup,
-} from "stores/story/utils";
+import delay from "delay";
+import { prendy, showMiniBubble } from "stores/stores";
 
-export const placeLoadRules = makePlaceLoadRules(
+export const placeLoadRules = prendy.rules.makePlaceLoadRules(
   // at start of any places
   ({ storyState: { exampleStoryToggle } }) => {
-    enableMovement();
-    hideMiniBubble();
+    prendy.story.players.enableMovement();
+    prendy.story.speech.hideMiniBubble();
 
     if (exampleStoryToggle) {
     } else {
     }
 
-    stopAllMusic();
+    prendy.story.sound.stopAllMusic();
   },
   // at start of individual places
   {
     async stairy({ storyState: { exampleStoryToggle } }) {
-      takePickup("key");
+      prendy.story.players.takePickup("key");
+
+      await delay(500);
+      showMiniBubble("‼️");
     },
   }
 );
 
-export const placeNotLoadedRules = makePlaceNotLoadedRules({
+export const placeUnloadRules = prendy.rules.makePlaceUnloadRules({
   async stairy() {
-    // hideDoll("lock");
+    // hideDoll("walker");
   },
 });
