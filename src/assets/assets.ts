@@ -1,19 +1,19 @@
-import { StoryPartName } from "stores/story/consts";
+import { storeHelpers, stores } from "stores/stores";
+import { StoryPartName } from "stores/story";
 import { CharacterName, characterNames, characterOptions } from "./characters";
 import { DollName, dollNames, dollOptions } from "./dolls";
-
 import {
   AnimationNameByModel,
   AnyAnimationName,
   BoneNameByModel,
   MaterialNameByModel,
   MeshNameByModel,
-  modelInfoByName,
   ModelName,
+  modelInfoByName,
   modelNames,
 } from "./models/models";
-import { musicFiles, MusicName, musicNames } from "./music/music";
-import { PRENDY_OPTIONS, FontName, fontNames } from "./options";
+import { MusicName, musicFiles, musicNames } from "./music/music";
+import { PRENDY_OPTIONS } from "./options";
 import { PickupName, pickupsInfo } from "./pickups/pickups";
 import {
   AnyCameraName,
@@ -21,17 +21,18 @@ import {
   AnySpotName,
   AnyTriggerName,
   CameraNameByPlace,
-  placeInfoByName,
   PlaceName,
-  placeNames,
   SegmentNameByPlace,
   SoundspotNameByPlace,
   SpotNameByPlace,
   TriggerNameByPlace,
   WallNameByPlace,
+  placeInfoByName,
+  placeNames,
 } from "./places/places";
-import { soundFiles, SoundName, soundNames } from "./sounds/sounds";
-import { speechVidFiles, SpeechVidName } from "./speechvids/speechvids";
+import { SoundName, soundFiles, soundNames } from "./sounds/sounds";
+import { SpeechVidName, speechVidFiles } from "./speechvids/speechvids";
+import { FontName, fontNames } from "./fonts";
 
 export const PRENDY_ASSETS = {
   placeInfoByName,
@@ -49,28 +50,15 @@ export const PRENDY_ASSETS = {
   musicFiles,
   soundFiles,
   speechVidFiles,
-  // startOptions
-};
-
-type ModelNamesByPlaceLoose = Record<PlaceName, ModelName[]>;
-
-type PlaceInfoByName = typeof placeInfoByName;
-type ModelInfoByName = typeof modelInfoByName;
-type DollOptions = typeof dollOptions;
-type CharacterOptions = typeof characterOptions;
-type MusicFiles = typeof musicFiles;
-type SpeechVidFiles = typeof speechVidFiles;
-type SoundFiles = typeof soundFiles;
-type PickupsInfo = typeof pickupsInfo;
-
-type PrendyOptions = typeof PRENDY_OPTIONS;
+  prendyOptions: PRENDY_OPTIONS,
+} as const;
 
 export type LocalAssetsTypes = {
-  PrendyOptions: PrendyOptions;
-  PlaceInfoByName: PlaceInfoByName;
-  ModelInfoByName: ModelInfoByName;
-  DollOptions: DollOptions;
-  CharacterOptions: CharacterOptions;
+  PrendyOptions: typeof PRENDY_OPTIONS;
+  PlaceInfoByName: typeof placeInfoByName;
+  ModelInfoByName: typeof modelInfoByName;
+  DollOptions: typeof dollOptions;
+  CharacterOptions: typeof characterOptions;
   ModelName: ModelName;
   DollName: DollName;
   CharacterName: CharacterName;
@@ -95,15 +83,18 @@ export type LocalAssetsTypes = {
   BoneNameByModel: BoneNameByModel;
   MaterialNameByModel: MaterialNameByModel;
   MeshNameByModel: MeshNameByModel;
-  ModelNamesByPlaceLoose: ModelNamesByPlaceLoose;
+  ModelNamesByPlaceLoose: Record<PlaceName, ModelName[]>;
   SegmentNameByPlace: SegmentNameByPlace;
-  MusicFiles: MusicFiles;
-  SpeechVidFiles: SpeechVidFiles;
-  SoundFiles: SoundFiles;
-  PickupsInfo: PickupsInfo;
+  MusicFiles: typeof musicFiles;
+  SpeechVidFiles: typeof speechVidFiles;
+  SoundFiles: typeof soundFiles;
+  PickupsInfo: typeof pickupsInfo;
 };
+type LocalStores = typeof stores;
+type LocalStoreHelpers = typeof storeHelpers;
 
 declare module "prendy" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface CustomAssetsTypes extends LocalAssetsTypes {}
+  interface CustomPrendyStores extends LocalStores {}
+  interface CustomStoreHelpers extends LocalStoreHelpers {}
 }

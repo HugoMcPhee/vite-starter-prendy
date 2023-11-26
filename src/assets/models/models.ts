@@ -1,4 +1,4 @@
-import { modelInfo as walkerInfo } from "./walker";
+import { modelInfo as walkerInfo } from "./walker/walker";
 
 export const modelInfoByName = {
   walker: walkerInfo,
@@ -6,9 +6,7 @@ export const modelInfoByName = {
 
 export type ModelName = keyof typeof modelInfoByName;
 
-export const modelNames = [
-  "walker", 
-] as const;
+export const modelNames = ["walker"] as const;
 
 type ModelInfoByName = typeof modelInfoByName;
 
@@ -37,7 +35,4 @@ export type SkeletonNameByModel = {
 };
 export type AnySkeletonName = SkeletonNameByModel[ModelName];
 
-
-export const allAnimationNames = [
-  ...walkerInfo.animationNames,
-];
+export const allAnimationNames = [...walkerInfo.animationNames];

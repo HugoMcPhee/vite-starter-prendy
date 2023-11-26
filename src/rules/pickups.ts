@@ -1,15 +1,7 @@
-import { stylesBySpecialText } from "assets/options";
-import { PickupName } from "assets/pickups/pickups";
-import { getRefs, onNextTick, setState } from "stores/stores";
-import {
-  makeOnUsePickupAtTrigger,
-  makeOnUsePickupGenerally,
-  makeOnUsePickupToTalk,
-  showMiniBubble,
-  showSpeech,
-} from "stores/story/utils";
+import { stylesBySpecialText } from "assets/fonts";
+import { prendy, setState } from "stores/stores";
 
-export const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
+const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({
   stairy: {
     door_to_basement: {
       async key() {
@@ -19,35 +11,27 @@ export const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   },
 });
 
-export const onUsePickupToTalk = makeOnUsePickupToTalk({
+const onUsePickupToTalk = prendy.rules.makeOnUsePickupToTalk({
   walker: { async hug() {} },
 });
 
-export const onUsePickupGenerally = makeOnUsePickupGenerally({
+const onUsePickupGenerally = prendy.rules.makeOnUsePickupGenerally({
   async key({ storyState: { exampleStoryToggle } }) {
     if (exampleStoryToggle) {
     } else {
     }
-    await showSpeech("a big key 🗝️", { stylesBySpecialText });
+
+    await prendy.story.speech.showSpeech("a big key 🗝️", { stylesBySpecialText });
+    // await showMiniBubble("🗝️");
+  },
+  async hug({ storyState: {} }) {
+    await prendy.story.speech.showSpeech("a big hug 🗝️", { stylesBySpecialText });
     // await showMiniBubble("🗝️");
   },
 });
 
-//  NOTE could maybe make this automatic ly combined in libraries/gamey
-export function onPickupButtonClick(pickupName: PickupName) {
-  setState({ players: { main: { interactButtonPressTime: Date.now() } } });
-  const didUsePickupAtTrigger = onUsePickupAtTrigger(pickupName);
-  const didUsePickupWithDoll = onUsePickupToTalk(pickupName);
-
-  // NOTE the top two functions can return true if they ran,
-  // and if neither returned true, it runs the genral one
-  if (!didUsePickupAtTrigger && !didUsePickupWithDoll) {
-    onUsePickupGenerally(pickupName);
-  }
-}
-
-export function makePickupsRules() {
-  onNextTick(() => {
-    getRefs().global.main.onPickupButtonClick = onPickupButtonClick;
-  });
-}
+export const pickupsRules = prendy.rules.makePickupsRules({
+  onUsePickupAtTrigger,
+  onUsePickupGenerally,
+  onUsePickupToTalk,
+});
