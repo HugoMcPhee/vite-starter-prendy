@@ -1,5 +1,10 @@
-import { prendy } from "stores/stores";
+import { makeRuleMaker, prendy } from "stores/stores";
+const {
+  utils: { getUsefulStoryStuff },
+} = prendy;
 
-export const storyPartRules = prendy.rules.makeStoryPartRules({
+const makeStoryPartRules = makeRuleMaker("story", "main", "storyPart", "story", getUsefulStoryStuff);
+
+export const storyPartRules = makeStoryPartRules({
   async "00_before_start"() {},
 });

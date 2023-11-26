@@ -1,41 +1,38 @@
-import delay from "delay";
-import { getState, makeRules, prendy } from "stores/stores";
+import { makeRules, prendy, storeHelpers } from "stores/stores";
 import { camChangeRules, camLeaveRules } from "./cameras";
 import { interactButtonRules } from "./interact";
 import { pickupsRules } from "./pickups";
-import { placeLoadRules, placeNotLoadedRules } from "./places";
+import { placeLoadRules, placeUnloadRules } from "./places";
 import { camSegmentRules } from "./segments";
 import { storyPartRules } from "./storyParts";
 import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
+import { makeMoverUtils } from "repond-movers";
 
+const {} = makeMoverUtils(storeHelpers, ["global", "main", "gameTimeElapsed"]);
 export const storyRules = makeRules(({ itemEffect, effect }) => ({
-  // TODO add checkpoint support to prendy
-  whenPressCheckpointButton: itemEffect({
-    async run({ newValue }) {
-      const { exampleStoryToggle } = getState().story.main;
-      const { nowPlaceName, playerMovingPaused } = getState().global.main;
-
-      if (playerMovingPaused) return;
-
-      prendy.story.scene.showStoryView(false);
-
-      prendy.story.players.enableMovement(false);
-      await delay(1000);
-
-      if (nowPlaceName === "stairy") {
-        prendy.story.dolls.setDollToSpot({
-          doll: "walker",
-          place: "stairy",
-          spot: "start_spot",
-        });
-        prendy.story.scene.setCamera("stairy", "room_camera");
+  exampleRule: itemEffect({
+    run({ newValue: isPressed }) {
+      if (isPressed) {
+        console.log("z key pressed");
+        prendy.utils.savePrendyState();
       }
-      await delay(1000);
-      prendy.story.players.enableMovement();
-      prendy.story.scene.showStoryView();
     },
     check: { prop: "KeyZ", type: "keyboards" },
+    atStepEnd: true,
+    step: "story", // story insead of input, so virtual stick animations dont overwrite the story click ones
+  }),
+  loadPrendyState: itemEffect({
+    async run({ newValue: isPressed }) {
+      if (isPressed) {
+        console.log("m key pressed");
+        await prendy.utils.loadPrendyState();
+        storyPartRules.runAll(); // run all story part rules here
+      }
+    },
+    check: { prop: "KeyM", type: "keyboards" },
+    atStepEnd: true,
+    step: "story", // story insead of input, so virtual stick animations dont overwrite the story click ones
   }),
 }));
 
@@ -51,7 +48,7 @@ export const customRules = [
   nearTalkRules,
   nearTalkLeaveRules,
   placeLoadRules,
-  placeNotLoadedRules,
+  placeUnloadRules,
   pickupsRules,
   interactButtonRules,
 ];
