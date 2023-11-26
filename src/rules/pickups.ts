@@ -1,4 +1,4 @@
-import { stylesBySpecialText } from "assets/options";
+import { stylesBySpecialText } from "assets/fonts";
 import { prendy, setState } from "stores/stores";
 
 const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({

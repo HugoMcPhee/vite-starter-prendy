@@ -1,8 +1,4 @@
 import { makePrendyOptions } from "prendy";
-import { CSSProperties } from "react";
-
-// export const WALK_SPEEDS = { normal: 14, swimming: 4 };
-export const WALK_SPEEDS = { normal: 6, swimming: 2 };
 
 export const PRENDY_OPTIONS = makePrendyOptions({
   place: "stairy",
@@ -12,9 +8,13 @@ export const PRENDY_OPTIONS = makePrendyOptions({
   playerCharacter: "walker",
   playerAnimations: { idle: "walker_idle", walking: "walker_walking" },
   zoomLevels: { default: 1.1, max: 2 },
-  walkSpeed: WALK_SPEEDS.normal,
+  walkSpeed: 6,
+  // walkSpeed: 4,
   animationSpeed: 1,
-  headHeightOffset: 1.5,
+  gameTimeSpeed: 1,
+  headHeightOffsets: {
+    walker: 1.5,
+  },
 
   doorsInfo: {
     stairy: {
@@ -41,14 +41,3 @@ export const PRENDY_OPTIONS = makePrendyOptions({
   hasInteracting: false,
   hasJumping: true,
 });
-
-export const fontNames = ["Jua", "Pacifico"] as const; // font names from google fonts
-export type FontName = (typeof fontNames)[number];
-
-// project stuff?
-
-export const stylesBySpecialText: Record<string, CSSProperties> = {
-  key: { fontFamily: "Pacifico", color: "rgb(212, 199, 112)" },
-};
-
-// segment and opening door puzzle

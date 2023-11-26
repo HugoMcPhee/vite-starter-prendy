@@ -1,29 +1,29 @@
 import modelFile from "./stairy.glb";
 
 import backdropVideoFile from "./backdrops.mp4";
-import left_door_camera_probe_image from "./left_door_camera_probe.env";
 import room_camera_probe_image from "./room_camera_probe.env";
+import left_door_camera_probe_image from "./left_door_camera_probe.env";
 import downstair_camera_probe_image from "./downstair_camera_probe.env";
 import stairs_camera_probe_image from "./stairs_camera_probe.env";
 
 export const probesByCamera = {
-  left_door_camera: left_door_camera_probe_image,
   room_camera: room_camera_probe_image,
+  left_door_camera: left_door_camera_probe_image,
   downstair_camera: downstair_camera_probe_image,
   stairs_camera: stairs_camera_probe_image,
 };
 export const segmentTimesByCamera = {
-  left_door_camera: {
+  room_camera: {
     start: 0,
   },
-  room_camera: {
-    start: 2,
+  left_door_camera: {
+    start: 1.73333,
   },
   downstair_camera: {
-    start: 4,
+    start: 3.46667,
   },
   stairs_camera: {
-    start: 6,
+    start: 5.2,
   },
 } as const;
 export type CameraName = keyof typeof probesByCamera & keyof typeof segmentTimesByCamera;
@@ -31,9 +31,10 @@ export const cameraNames = Object.keys(probesByCamera) as Readonly<CameraName[]>
 
 export const videoFiles = {
   backdrop: backdropVideoFile,
-};
+}
 export const segmentDurations = {
-  default: 1,
+  start: 1.6666666666666667,
+  light_flicker: 1.6666666666666667,
 };
 export type SegmentName = keyof typeof segmentDurations;
 export const segmentNames = Object.keys(segmentDurations) as SegmentName[];

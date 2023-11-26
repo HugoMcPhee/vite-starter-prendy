@@ -1,5 +1,5 @@
-import { placeInfo as basementInfo } from "./basement";
-import { placeInfo as stairyInfo } from "./stairy";
+import { placeInfo as basementInfo } from "./basement/basement";
+import { placeInfo as stairyInfo } from "./stairy/stairy";
 
 export const placeInfoByName = {
   basement: basementInfo,
@@ -16,7 +16,9 @@ export type CameraNameByPlace = {
   [P_PlaceName in PlaceName]: PlaceInfoByName[P_PlaceName]["cameraNames"][number];
 };
 
-export type CameraNameFromPlace<T_Place extends keyof PlaceInfoByName> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"];
+export type CameraNameFromPlace<
+T_Place extends keyof PlaceInfoByName
+> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"];
 
 export type AnyCameraName = CameraNameByPlace[PlaceName];
 
@@ -38,7 +40,10 @@ export type SegmentNameByCameraByPlace = {
     [P_Cam in keyof PlaceInfoByName[P_Place]["segmentTimesByCamera"]]: keyof PlaceInfoByName[P_Place]["segmentTimesByCamera"][P_Cam];
   };
 };
-export type SegmentNameFromCameraAndPlace<T_Place extends keyof PlaceInfoByName, T_Cam extends keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"]> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"][T_Cam];
+export type SegmentNameFromCameraAndPlace<
+  T_Place extends keyof PlaceInfoByName,
+  T_Cam extends keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"]
+> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"][T_Cam];
 export type AnySegmentName = SegmentNameByPlace[PlaceName];
 
 export type TriggerNameByPlace = {
