@@ -96,5 +96,5 @@ type LocalStoreHelpers = typeof storeHelpers;
 declare module "prendy" {
   interface CustomAssetsTypes extends LocalAssetsTypes {}
   interface CustomPrendyStores extends LocalStores {}
-  interface CustomStoreHelpers extends LocalStoreHelpers {}
+  interface CustomRepondHelpers extends LocalStoreHelpers {}
 }
