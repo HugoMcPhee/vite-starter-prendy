@@ -1,4 +1,4 @@
-import { makeRules, prendy, storeHelpers } from "stores/stores";
+import { makeRules, storeHelpers } from "stores/stores";
 import { camChangeRules, camLeaveRules } from "./cameras";
 import { interactButtonRules } from "./interact";
 import { pickupsRules } from "./pickups";
@@ -8,14 +8,16 @@ import { storyPartRules } from "./storyParts";
 import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
 import { makeMoverUtils } from "repond-movers";
+import { loadPrendyState, savePrendyState } from "prendy";
 
+// FIXME type issue here
 const {} = makeMoverUtils(storeHelpers, ["global", "main", "gameTimeElapsed"]);
 export const storyRules = makeRules(({ itemEffect, effect }) => ({
   exampleRule: itemEffect({
     run({ newValue: isPressed }) {
       if (isPressed) {
         console.log("z key pressed");
-        prendy.utils.savePrendyState();
+        savePrendyState();
       }
     },
     check: { prop: "KeyZ", type: "keyboards" },
@@ -26,7 +28,7 @@ export const storyRules = makeRules(({ itemEffect, effect }) => ({
     async run({ newValue: isPressed }) {
       if (isPressed) {
         console.log("m key pressed");
-        await prendy.utils.loadPrendyState();
+        await loadPrendyState();
         storyPartRules.runAll(); // run all story part rules here
       }
     },

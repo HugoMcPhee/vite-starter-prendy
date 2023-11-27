@@ -1,7 +1,5 @@
-import { makeRuleMaker, prendy } from "stores/stores";
-const {
-  utils: { getUsefulStoryStuff },
-} = prendy;
+import { getUsefulStoryStuff } from "prendy/src/helpers/prendyRuleMakers/prendyRuleMakers";
+import { makeRuleMaker } from "stores/stores";
 
 const makeStoryPartRules = makeRuleMaker("story", "main", "storyPart", "story", getUsefulStoryStuff);
 

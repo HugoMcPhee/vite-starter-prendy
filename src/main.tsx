@@ -2,8 +2,8 @@ import { PRENDY_ASSETS } from "assets/assets";
 import { makeDebugFrameRate, makePrendyApp } from "prendy";
 import React from "react";
 import ReactDOM from "react-dom";
-import { customRules } from "rules/rules";
 import { storeHelpers, stores } from "stores/stores";
+import { customRules } from "rules/rules";
 import "./index.css";
 
 const PrendyApp = makePrendyApp({

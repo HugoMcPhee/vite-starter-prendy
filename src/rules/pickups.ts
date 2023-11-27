@@ -1,7 +1,7 @@
 import { stylesBySpecialText } from "assets/fonts";
-import { prendy, setState } from "stores/stores";
+import { makeOnUsePickupAtTrigger, makeOnUsePickupGenerally, makeOnUsePickupToTalk, makePickupsRules } from "prendy";
 
-const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({
+const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   stairy: {
     door_to_basement: {
       async key() {
@@ -11,11 +11,11 @@ const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({
   },
 });
 
-const onUsePickupToTalk = prendy.rules.makeOnUsePickupToTalk({
+const onUsePickupToTalk = makeOnUsePickupToTalk({
   walker: { async hug() {} },
 });
 
-const onUsePickupGenerally = prendy.rules.makeOnUsePickupGenerally({
+const onUsePickupGenerally = makeOnUsePickupGenerally({
   async key({ storyState: { exampleStoryToggle } }) {
     if (exampleStoryToggle) {
     } else {
@@ -30,7 +30,7 @@ const onUsePickupGenerally = prendy.rules.makeOnUsePickupGenerally({
   },
 });
 
-export const pickupsRules = prendy.rules.makePickupsRules({
+export const pickupsRules = makePickupsRules({
   onUsePickupAtTrigger,
   onUsePickupGenerally,
   onUsePickupToTalk,
