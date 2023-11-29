@@ -1,4 +1,3 @@
-import { makeRules, storeHelpers } from "stores/stores";
 import { camChangeRules, camLeaveRules } from "./cameras";
 import { interactButtonRules } from "./interact";
 import { pickupsRules } from "./pickups";
@@ -9,9 +8,9 @@ import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
 import { makeMoverUtils } from "repond-movers";
 import { loadPrendyState, savePrendyState } from "prendy";
+import { makeRules } from "repond";
 
-// FIXME type issue here
-const {} = makeMoverUtils(storeHelpers, ["global", "main", "gameTimeElapsed"]);
+const {} = makeMoverUtils(["global", "main", "elapsedGameTime"]);
 export const storyRules = makeRules(({ itemEffect, effect }) => ({
   exampleRule: itemEffect({
     run({ newValue: isPressed }) {
