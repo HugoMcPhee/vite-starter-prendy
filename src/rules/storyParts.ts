@@ -1,5 +1,5 @@
 import { getUsefulStoryStuff } from "prendy/src/helpers/prendyRuleMakers/prendyRuleMakers";
-import { makeRuleMaker } from "stores/stores";
+import { makeRuleMaker } from "repond";
 
 const makeStoryPartRules = makeRuleMaker("story", "main", "storyPart", "story", getUsefulStoryStuff);
 

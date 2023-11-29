@@ -23,7 +23,11 @@
     "paths": {
       "prendy": [
         "../node_modules/prendy/src/index.ts"
-      ]
+      ],
+      "repond": [
+        "../node_modules/repond/src/index.tsx"
+      ],
+      
     }
   },
   "include": [
