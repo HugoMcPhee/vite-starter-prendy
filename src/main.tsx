@@ -1,19 +1,14 @@
 import { PRENDY_ASSETS } from "assets/assets";
-import { makeDebugFrameRate, makePrendyApp } from "prendy";
+import { makePrendyApp, prendyStepNames } from "prendy";
 import React from "react";
 import ReactDOM from "react-dom";
-import { storeHelpers, stores } from "stores/stores";
 import { customRules } from "rules/rules";
 import "./index.css";
+import { initRepond } from "repond";
+import { stores } from "stores/stores";
 
-const PrendyApp = makePrendyApp({
-  prendyAssets: PRENDY_ASSETS,
-  stores,
-  storeHelpers,
-  customRules,
-});
-
-const DebugFrameRate = makeDebugFrameRate(storeHelpers);
+initRepond(stores, { stepNames: prendyStepNames });
+const PrendyApp = makePrendyApp(PRENDY_ASSETS, customRules);
 
 ReactDOM.render(
   <React.StrictMode>

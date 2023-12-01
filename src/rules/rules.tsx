@@ -6,11 +6,12 @@ import { camSegmentRules } from "./segments";
 import { storyPartRules } from "./storyParts";
 import { nearTalkLeaveRules, nearTalkRules, touchRules } from "./touches";
 import { triggerLeaveRules, triggerRules } from "./triggers";
-import { makeMoverUtils } from "repond-movers";
+import { initMovers } from "repond-movers";
 import { loadPrendyState, savePrendyState } from "prendy";
 import { makeRules } from "repond";
 
-const {} = makeMoverUtils(["global", "main", "elapsedGameTime"]);
+initMovers(["global", "main", "elapsedGameTime"]);
+
 export const storyRules = makeRules(({ itemEffect, effect }) => ({
   exampleRule: itemEffect({
     run({ newValue: isPressed }) {
