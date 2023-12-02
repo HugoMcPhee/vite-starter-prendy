@@ -2427,10 +2427,10 @@ postcss@^8.4.27:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prendy@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.10.1.tgz#c6785570e171e5ca07d153a6d75370a0c6d0fd1d"
-  integrity sha512-wfN87/J/FQ4DEdCbGy+WhYwKBCfLlMMTxy+B/r4BbJVFTIyxgLES23KtoEiaMALrUH/k3PJgOXMJw2Z/anwFoQ==
+prendy@^0.10.7:
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.10.7.tgz#636e69180cfa57f82e3ae8e9a88ac65d37bf6c52"
+  integrity sha512-U7dCZ6lyxXYSaj0edhJWSsoo8zkVI6bJPRJcsecLs3iT9i5cyclHBF6B8NFc8EVn1QtI7e+Ypr45AghgX+mcuw==
 
 pretty-bytes@^5.3.0:
   version "5.6.0"
@@ -2459,7 +2459,7 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-babylonjs@3.1.26:
+react-babylonjs@^3.1.26:
   version "3.1.26"
   resolved "https://registry.yarnpkg.com/react-babylonjs/-/react-babylonjs-3.1.26.tgz#22f58dcaa41f94e202d6ee51497316236c8db7ec"
   integrity sha512-U8lo3hPO61fMmu0qv/fM4VE4ZW+M3LHphWNlHbB/Y9E5XxwFQ1pnEkTHPxwcJUh/NxzLQ66d/7h9h5ElO8XXQg==
@@ -2565,15 +2565,15 @@ regjsparser@^0.9.1:
   dependencies:
     jsesc "~0.5.0"
 
-repond-movers@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/repond-movers/-/repond-movers-0.10.0.tgz#e2ef51f7a7bec6a42849a88c479bb6b89e36fc39"
-  integrity sha512-3/CGIDKaDsXTcg+lwESXYs8WMDbjEAAU9674Dse2brGAbJoq/24M3flQD/tUveGTqn7PkplCIoAVC0ZSc7cX0Q==
+repond-movers@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/repond-movers/-/repond-movers-0.10.3.tgz#638d78a050ef79275e6485f139067395213a0187"
+  integrity sha512-/HSVXQ1m5wtMgXclyc1F/9GS2yIDLCp2k7M7N7EJcBvGDOC79LO0nQbDzgBYnBXkvbW0+HrzQygtQyHnb7hoYA==
 
-repond@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/repond/-/repond-0.10.0.tgz#b51198cf10239f8e37885538da271d0d8ba1c216"
-  integrity sha512-WIMSktF4mEArf5x5nvadT7zBeyWb2Bq1CV5x0vFR6ZFwaIuiUfp869KXHFs6cw9nu7OCzMrf9R2NEqoWmYKyZQ==
+repond@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/repond/-/repond-0.10.2.tgz#f1269229d6773b17a6f6fbc502b43ebfe88f8bd3"
+  integrity sha512-bRrKIab6z3LUM18gLZ+5wODdQUyyexWEQOXs0+hk1FinAah/LWZj+CXHXA/O4elyYOPw71Ssak8QdZhdi+3Xiw==
 
 require-from-string@^2.0.2:
   version "2.0.2"
