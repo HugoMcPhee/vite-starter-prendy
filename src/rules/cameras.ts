@@ -1,12 +1,12 @@
-import { prendy } from "stores/stores";
+import { makeCamChangeRules, makeCamLeaveRules } from "prendy";
 
-export const camChangeRules = prendy.rules.makeCamChangeRules({
+export const camChangeRules = makeCamChangeRules({
   basement: {
     async first_cam({ storyState: { exampleStoryToggle } }) {},
   },
 });
 
-export const camLeaveRules = prendy.rules.makeCamLeaveRules({
+export const camLeaveRules = makeCamLeaveRules({
   basement: {
     async first_cam() {},
   },

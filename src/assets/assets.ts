@@ -1,4 +1,3 @@
-import { storeHelpers, stores } from "stores/stores";
 import { StoryPartName } from "stores/story";
 import { CharacterName, characterNames, characterOptions } from "./characters";
 import { DollName, dollNames, dollOptions } from "./dolls";
@@ -90,11 +89,7 @@ export type LocalAssetsTypes = {
   SoundFiles: typeof soundFiles;
   PickupsInfo: typeof pickupsInfo;
 };
-type LocalStores = typeof stores;
-type LocalStoreHelpers = typeof storeHelpers;
 
 declare module "prendy" {
   interface CustomAssetsTypes extends LocalAssetsTypes {}
-  interface CustomPrendyStores extends LocalStores {}
-  interface CustomStoreHelpers extends LocalStoreHelpers {}
 }

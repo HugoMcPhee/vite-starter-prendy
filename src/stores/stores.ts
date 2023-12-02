@@ -1,16 +1,12 @@
 import { PRENDY_ASSETS } from "assets/assets";
-import { makePrendyHelpers, makePrendyStores, prendyStepNames } from "prendy";
-import { createStoreHelpers } from "repond";
+import { makePrendyStores, prendyStepNames } from "prendy";
 import story from "./story";
 
 export const stores = { story, ...makePrendyStores(PRENDY_ASSETS) };
-export const storeHelpers = createStoreHelpers(stores, { stepNames: prendyStepNames });
-export const { setState, getState, getRefs, makeRules, makeRuleMaker } = storeHelpers;
 
-export const prendy = makePrendyHelpers(PRENDY_ASSETS, stores, storeHelpers);
-
-export const {
-  story: {
-    speech: { showMiniBubble, hideMiniBubble },
-  },
-} = prendy;
+declare module "repond/src/declarations" {
+  interface CustomRepondTypes {
+    AllStoreInfo: typeof stores;
+    StepNames: typeof prendyStepNames;
+  }
+}
