@@ -1,19 +1,16 @@
-import { prendy } from "stores/stores";
+import { showSpeech } from "prendy";
+import { makeInteractButtonRules, makeOnInteractAtTrigger, makeOnInteractToTalk } from "prendy";
 
-const onInteractAtTrigger = prendy.rules.makeOnInteractAtTrigger({
-  stairy: {
-    async door_to_basement() {
-      // when the player touches the "door_to_basement" trigger
-      await prendy.story.speech.showSpeech("I just came from there 🤔");
+export const interactButtonRules = makeInteractButtonRules({
+  onInteractAtTrigger: makeOnInteractAtTrigger({
+    stairy: {
+      async door_to_basement() {
+        // when the player touches the "door_to_basement" trigger
+        await showSpeech("I just came from there 🤔");
+      },
     },
-  },
-});
-
-const onInteractAtTalk = prendy.rules.makeOnInteractToTalk({
-  async walker() {},
-});
-
-export const interactButtonRules = prendy.rules.makeInteractButtonRules({
-  onInteractAtTrigger,
-  onInteractAtTalk,
+  }),
+  onInteractAtTalk: makeOnInteractToTalk({
+    async walker() {},
+  }),
 });

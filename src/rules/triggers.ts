@@ -1,6 +1,5 @@
-import { prendy } from "stores/stores";
-
-const { makeTriggerRules } = prendy.rules;
+import { hideMiniBubble } from "prendy";
+import { makeTriggerRules } from "prendy";
 
 export const triggerRules = makeTriggerRules({
   walker: {
@@ -15,7 +14,7 @@ export const triggerLeaveRules = makeTriggerRules(
   {
     walker: {
       stairy: {
-        door_to_basement: () => prendy.story.speech.hideMiniBubble(),
+        door_to_basement: () => hideMiniBubble(),
       },
     },
   },

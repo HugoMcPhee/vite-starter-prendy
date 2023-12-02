@@ -1,7 +1,13 @@
 import { stylesBySpecialText } from "assets/fonts";
-import { prendy, setState } from "stores/stores";
+import {
+  makeOnUsePickupAtTrigger,
+  makeOnUsePickupGenerally,
+  makeOnUsePickupToTalk,
+  makePickupsRules,
+  showSpeech,
+} from "prendy";
 
-const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({
+const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   stairy: {
     door_to_basement: {
       async key() {
@@ -11,26 +17,26 @@ const onUsePickupAtTrigger = prendy.rules.makeOnUsePickupAtTrigger({
   },
 });
 
-const onUsePickupToTalk = prendy.rules.makeOnUsePickupToTalk({
+const onUsePickupToTalk = makeOnUsePickupToTalk({
   walker: { async hug() {} },
 });
 
-const onUsePickupGenerally = prendy.rules.makeOnUsePickupGenerally({
+const onUsePickupGenerally = makeOnUsePickupGenerally({
   async key({ storyState: { exampleStoryToggle } }) {
     if (exampleStoryToggle) {
     } else {
     }
 
-    await prendy.story.speech.showSpeech("a big key 🗝️", { stylesBySpecialText });
+    await showSpeech("a big key 🗝️", { stylesBySpecialText });
     // await showMiniBubble("🗝️");
   },
   async hug({ storyState: {} }) {
-    await prendy.story.speech.showSpeech("a big hug 🗝️", { stylesBySpecialText });
+    await showSpeech("a big hug 🗝️", { stylesBySpecialText });
     // await showMiniBubble("🗝️");
   },
 });
 
-export const pickupsRules = prendy.rules.makePickupsRules({
+export const pickupsRules = makePickupsRules({
   onUsePickupAtTrigger,
   onUsePickupGenerally,
   onUsePickupToTalk,
