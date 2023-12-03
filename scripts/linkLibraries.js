@@ -32,8 +32,16 @@ async function linkLibrary(library) {
 
   if (library.specialHandling === "babylonjs") {
     for (const module of ["core", "loaders"]) {
-      await runCommand("yarn link", path.join(libraryPath, `node_modules/@babylonjs/${module}`));
+      const modulePath = path.join(libraryPath, "node_modules", "@babylonjs", module);
+      await runCommand("yarn link", modulePath);
     }
+  }
+}
+
+async function linkBabylonJSToGameProject() {
+  const gameProjectPath = path.join(__dirname, "..");
+  for (const module of ["@babylonjs/core", "@babylonjs/loaders"]) {
+    await runCommand(`yarn link ${module}`, gameProjectPath);
   }
 }
 
@@ -51,6 +59,16 @@ async function main() {
   for (const library of libraries) {
     await linkLibrary(library);
   }
+
+  // Link all libraries to the game project
+  const gameProjectPath = path.join(__dirname, "..");
+  const allLibraries = ["repond", "repond-movers", "prendy"];
+  for (const lib of allLibraries) {
+    await runCommand(`yarn link ${lib}`, gameProjectPath);
+  }
+
+  // Link BabylonJS modules to the game project
+  await linkBabylonJSToGameProject();
 }
 
 main();
