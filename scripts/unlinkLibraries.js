@@ -2,7 +2,7 @@ const { exec: execCallback } = require("child_process");
 const util = require("util");
 const exec = util.promisify(execCallback);
 const path = require("path");
-const fs = require("fs").promises;
+const fs = require("fs");
 
 async function runCommand(command, directory) {
   try {
@@ -13,52 +13,55 @@ async function runCommand(command, directory) {
   }
 }
 
-async function updatePackageMain(libraryPath, newPath) {
-  const packagePath = path.join(libraryPath, "package.json");
-  const packageData = JSON.parse(await fs.readFile(packagePath, "utf8"));
-  packageData.main = newPath;
-  await fs.writeFile(packagePath, JSON.stringify(packageData, null, 2));
-}
-
-async function unlinkLibrary(library) {
+async function unlinkSelf(library) {
   const libraryPath = path.join(__dirname, "..", "..", library);
-  await updatePackageMain(libraryPath, "dist/index.js");
-
-  try {
-    const { stdout } = await exec(`yarn unlink ${library}`, { cwd: libraryPath });
-    console.log(stdout);
-  } catch (error) {
-    console.error(`Error unlinking ${library}:`, error);
-  }
+  await runCommand("yarn unlink", libraryPath);
 }
 
-async function unlinkLibrariesFromEachOther() {
+async function unlinkFrom(library, target, isGameProject = false) {
+  // Adjust the path based on whether it's for the game project or a library
+  const libraryPath = isGameProject
+    ? path.join(__dirname, "..") // Path for the game project, already at the correct level
+    : path.join(__dirname, "..", "..", library); // Path for a library
+
+  await runCommand(`yarn unlink ${target}`, libraryPath);
+}
+
+async function main() {
+  const libraries = ["repond", "repond-movers", "prendy"];
   const libraryRelations = [
     { source: "repond-movers", target: "repond" },
     { source: "prendy", target: "repond" },
     { source: "prendy", target: "repond-movers" },
   ];
 
+  // Unlink BabylonJS modules from the game project
+  const gameProjectPath = path.join(__dirname, "..", "..", "vite-starter-prendy");
+  for (const module of ["@babylonjs/core", "@babylonjs/loaders"]) {
+    await unlinkFrom(".", module, true);
+  }
+
+  // Unlink libraries from each other
   for (const relation of libraryRelations) {
-    const sourcePath = path.join(__dirname, "..", "..", relation.source);
-    console.log(`Unlinking ${relation.target} from ${relation.source}...`);
-    await runCommand(`yarn unlink ${relation.target}`, sourcePath);
+    await unlinkFrom(relation.source, relation.target);
   }
-}
 
-async function main() {
-  const libraries = ["repond", "repond-movers", "prendy"];
+  // Unlink BabylonJS modules from prendy
+  const prendyPath = "prendy";
+  for (const module of ["@babylonjs/core", "@babylonjs/loaders"]) {
+    await unlinkFrom(prendyPath, module);
+  }
 
+  // Unlink libraries from themselves
   for (const library of libraries) {
-    await unlinkLibrary(library);
+    await unlinkSelf(library);
   }
 
-  await unlinkLibrariesFromEachOther();
-
-  // Unlink BabylonJS libraries from prendy's node_modules
-  const prendyPath = path.join(__dirname, "..", "..", "prendy");
-  await runCommand(`yarn unlink @babylonjs/core`, path.join(prendyPath, "node_modules", "@babylonjs", "core"));
-  await runCommand(`yarn unlink @babylonjs/loaders`, path.join(prendyPath, "node_modules", "@babylonjs", "loaders"));
+  // Reinstall packages for each library and the game project
+  for (const library of libraries) {
+    await runCommand("yarn install --force", path.join(__dirname, "..", "..", library));
+  }
+  await runCommand("yarn install --force", gameProjectPath); // for the game project
 }
 
 main();
