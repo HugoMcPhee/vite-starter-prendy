@@ -1,6 +1,5 @@
 import { prendyEffectGroups, prendyParamEffectGroups } from "prendy";
-import { initEffectGroups } from "repond";
-import { initParamEffectGroups } from "repond/src/usable/paramEffects";
+import { initEffectGroups, initParamEffectGroups } from "repond";
 import { camChangeEffects, camLeaveEffects } from "./cameras";
 import { interactButtonEffects } from "./interact";
 import "./pickups"; // IMPORTANT: import effects to initialize them
