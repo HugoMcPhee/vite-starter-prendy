@@ -2427,10 +2427,10 @@ postcss@^8.4.27:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prendy@^0.10.7:
-  version "0.10.7"
-  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.10.7.tgz#636e69180cfa57f82e3ae8e9a88ac65d37bf6c52"
-  integrity sha512-U7dCZ6lyxXYSaj0edhJWSsoo8zkVI6bJPRJcsecLs3iT9i5cyclHBF6B8NFc8EVn1QtI7e+Ypr45AghgX+mcuw==
+prendy@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/prendy/-/prendy-0.11.2.tgz#73508dbb2293e94ddc2cdcb8b979cc74241eee54"
+  integrity sha512-aSfXQuCHWe7sNNNsKLE4et+kdXB5sxFqD+NTf66reovOFe6FsnA1g4X7AcOe7J4BfQH2SqJEXrZWxt93K8FNNQ==
 
 pretty-bytes@^5.3.0:
   version "5.6.0"
@@ -2565,15 +2565,15 @@ regjsparser@^0.9.1:
   dependencies:
     jsesc "~0.5.0"
 
-repond-movers@^0.10.3:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/repond-movers/-/repond-movers-0.10.3.tgz#638d78a050ef79275e6485f139067395213a0187"
-  integrity sha512-/HSVXQ1m5wtMgXclyc1F/9GS2yIDLCp2k7M7N7EJcBvGDOC79LO0nQbDzgBYnBXkvbW0+HrzQygtQyHnb7hoYA==
+repond-movers@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/repond-movers/-/repond-movers-0.11.2.tgz#33563da42ad451513ab7f1e2f98f78d3ee6f428e"
+  integrity sha512-LE7PNxuySWRE4jO8w3FyjOJ+q+Wt1yG1WlIVHk9TiI+G6f551tbQr16ilOCyboKTS1TXKAgNkTViYTxdIDSLkQ==
 
-repond@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/repond/-/repond-0.10.2.tgz#f1269229d6773b17a6f6fbc502b43ebfe88f8bd3"
-  integrity sha512-bRrKIab6z3LUM18gLZ+5wODdQUyyexWEQOXs0+hk1FinAah/LWZj+CXHXA/O4elyYOPw71Ssak8QdZhdi+3Xiw==
+repond@^0.14.3:
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/repond/-/repond-0.14.3.tgz#4ff6e35af29622d9d1862c9036342830b4bb5fa5"
+  integrity sha512-SphdjXT3Jdw8F6IlldkeXKdC8I/rMPWPF28WFt0RiFXKB1zPse857GSkYJTU+MBwgM6LiLAM113K5U/qemuvfQ==
 
 require-from-string@^2.0.2:
   version "2.0.2"
