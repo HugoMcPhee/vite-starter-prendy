@@ -1,10 +1,10 @@
-import { makeTouchRules } from "prendy";
+import { makeTouchEffects } from "prendy";
 
-export const touchRules = makeTouchRules({
+export const touchEffects = makeTouchEffects({
   walker() {},
 });
 
-export const nearTalkRules = makeTouchRules(
+export const nearTalkEffects = makeTouchEffects(
   {
     walker() {},
     // gear() {
@@ -13,7 +13,7 @@ export const nearTalkRules = makeTouchRules(
   },
   { distanceType: "talk" }
 );
-export const nearTalkLeaveRules = makeTouchRules(
+export const nearTalkLeaveEffects = makeTouchEffects(
   {
     walker() {},
     // gear() {

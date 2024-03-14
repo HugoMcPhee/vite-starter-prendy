@@ -1,7 +1,7 @@
 import { showSpeech } from "prendy";
-import { makeInteractButtonRules, makeOnInteractAtTrigger, makeOnInteractToTalk } from "prendy";
+import { makeInteractButtonEffects, makeOnInteractAtTrigger, makeOnInteractToTalk } from "prendy";
 
-export const interactButtonRules = makeInteractButtonRules({
+export const interactButtonEffects = makeInteractButtonEffects({
   onInteractAtTrigger: makeOnInteractAtTrigger({
     stairy: {
       async door_to_basement() {

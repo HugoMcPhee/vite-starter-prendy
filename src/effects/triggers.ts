@@ -1,7 +1,7 @@
 import { hideMiniBubble } from "prendy";
-import { makeTriggerRules } from "prendy";
+import { makeTriggerEffects } from "prendy";
 
-export const triggerRules = makeTriggerRules({
+export const triggerEffects = makeTriggerEffects({
   walker: {
     stairy: {
       // when bumpng into the "door_to_basement" trigger
@@ -10,7 +10,7 @@ export const triggerRules = makeTriggerRules({
   },
 });
 
-export const triggerLeaveRules = makeTriggerRules(
+export const triggerLeaveEffects = makeTriggerEffects(
   {
     walker: {
       stairy: {

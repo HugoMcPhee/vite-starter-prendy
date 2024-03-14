@@ -3,7 +3,7 @@ import {
   makeOnUsePickupAtTrigger,
   makeOnUsePickupGenerally,
   makeOnUsePickupToTalk,
-  makePickupsRules,
+  initPickupsEffects,
   showSpeech,
 } from "prendy";
 
@@ -36,7 +36,7 @@ const onUsePickupGenerally = makeOnUsePickupGenerally({
   },
 });
 
-export const pickupsRules = makePickupsRules({
+initPickupsEffects({
   onUsePickupAtTrigger,
   onUsePickupGenerally,
   onUsePickupToTalk,
