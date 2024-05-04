@@ -6,6 +6,7 @@ import { initRepond } from "repond";
 import { initMovers } from "repond-movers";
 import { stores } from "stores/stores";
 import "./effects/effects"; //IMPORTANT: import effects to initialize them
+import "./events/events"; //IMPORTANT: import effects to initialize them
 import "./index.css";
 
 initRepond(stores, { stepNames: prendyStepNames });

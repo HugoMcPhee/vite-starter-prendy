@@ -1,7 +1,7 @@
 export const storyPartNames = ["00_before_start"] as const;
 export type StoryPartName = (typeof storyPartNames)[number];
 
-const state = () => ({
+const getDefaultState = () => ({
   screenStickerIsVisible: false,
   screenStickerText: "🎵",
   screenStickerPosition: { x: 0.7, y: 0.3 },
@@ -12,10 +12,10 @@ const state = () => ({
   exampleStoryToggle: false,
 });
 
-const refs = () => ({});
+const getDefaultRefs = () => ({});
 
 // const startStates: InitialItemsState<typeof state> = {
-const startStates = { main: state() };
+const startStates = { main: getDefaultState() };
 
-const story = { startStates, state, refs };
+const story = { startStates, getDefaultState, getDefaultRefs };
 export default story;
