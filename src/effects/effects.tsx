@@ -9,9 +9,9 @@ import { sharedEffects } from "./shared";
 import { storyPartEffects } from "./storyParts";
 import { nearTalkEffects, nearTalkLeaveEffects, touchEffects } from "./touches";
 import { triggerEffects, triggerLeaveEffects } from "./triggers";
+import { repondEventsEffectGroups } from "repond-events";
 
 export const allEffectGroups = initEffectGroups({
-  ...prendyEffectGroups,
   sharedEffects,
   camChangeEffects,
   camLeaveEffects,
@@ -24,6 +24,7 @@ export const allEffectGroups = initEffectGroups({
   triggerEffects,
   triggerLeaveEffects,
   interactButtonEffects,
+  ...prendyEffectGroups,
 });
 
 console.log("initParamEffectGroups");

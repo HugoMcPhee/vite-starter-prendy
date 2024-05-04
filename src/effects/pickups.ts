@@ -1,11 +1,6 @@
 import { stylesBySpecialText } from "assets/fonts";
-import {
-  makeOnUsePickupAtTrigger,
-  makeOnUsePickupGenerally,
-  makeOnUsePickupToTalk,
-  initPickupsEffects,
-  showSpeech,
-} from "prendy";
+import { initPickupsEffects, makeOnUsePickupAtTrigger, makeOnUsePickupGenerally, makeOnUsePickupToTalk } from "prendy";
+import { runEvent } from "repond-events";
 
 const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   stairy: {
@@ -26,13 +21,10 @@ const onUsePickupGenerally = makeOnUsePickupGenerally({
     if (exampleStoryToggle) {
     } else {
     }
-
-    await showSpeech("a big key 🗝️", { stylesBySpecialText });
-    // await showMiniBubble("🗝️");
+    runEvent("speech", "showSpeech", { text: "a big key 🗝️", options: { stylesBySpecialText } });
   },
   async hug({ storyState: {} }) {
-    await showSpeech("a big hug 🗝️", { stylesBySpecialText });
-    // await showMiniBubble("🗝️");
+    runEvent("speech", "showSpeech", { text: "a big hug 🗝️", options: { stylesBySpecialText } });
   },
 });
 
