@@ -1,6 +1,7 @@
 import { stylesBySpecialText } from "assets/fonts";
 import { initPickupsEffects, makeOnUsePickupAtTrigger, makeOnUsePickupGenerally, makeOnUsePickupToTalk } from "prendy";
 import { runEvent } from "repond-events";
+// NOTE need to import this file in effects.ts to make sure it's initialized
 
 const onUsePickupAtTrigger = makeOnUsePickupAtTrigger({
   stairy: {
@@ -21,10 +22,10 @@ const onUsePickupGenerally = makeOnUsePickupGenerally({
     if (exampleStoryToggle) {
     } else {
     }
-    runEvent("speech", "showSpeech", { text: "a big key 🗝️", options: { stylesBySpecialText } });
+    runEvent("speech", "say", { what: "a big key 🗝️", stylesBySpecialText });
   },
   async hug({ storyState: {} }) {
-    runEvent("speech", "showSpeech", { text: "a big hug 🗝️", options: { stylesBySpecialText } });
+    runEvent("speech", "say", { what: "a big hug 🗝️", stylesBySpecialText });
   },
 });
 

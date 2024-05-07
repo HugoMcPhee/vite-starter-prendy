@@ -1,5 +1,4 @@
-import { hideMiniBubble } from "prendy";
-import { makeTriggerEffects } from "prendy";
+import { hideMiniBubble, makeTriggerEffects } from "prendy";
 
 export const triggerEffects = makeTriggerEffects({
   walker: {

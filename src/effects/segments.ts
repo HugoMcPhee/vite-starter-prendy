@@ -1,4 +1,5 @@
 import { initCamSegmentEffects } from "prendy";
+// NOTE need to import this file in effects.ts to make sure it's initialized
 
 initCamSegmentEffects({
   // define which segments should show for cameras
