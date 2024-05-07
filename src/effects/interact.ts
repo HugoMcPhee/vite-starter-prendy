@@ -7,7 +7,7 @@ export const interactButtonEffects = makeInteractButtonEffects({
     stairy: {
       async door_to_basement() {
         // when the player touches the "door_to_basement" trigger
-        runEvent("speech", "showSpeech", { text: "I just came from there 🤔" });
+        runEvent("speech", "say", { what: "I just came from there 🤔" });
       },
     },
   }),
