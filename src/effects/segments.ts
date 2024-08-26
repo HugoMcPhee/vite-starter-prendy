@@ -6,10 +6,8 @@ initCamSegmentEffects({
   stairy: {
     room_camera: ({ storyState: { exampleStoryToggle } }) => {
       console.log("exampleStoryToggle", exampleStoryToggle);
-
       if (exampleStoryToggle === true) {
         console.log("was true");
-
         return "start";
       } else {
         console.log("was false");

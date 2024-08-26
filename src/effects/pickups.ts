@@ -28,9 +28,4 @@ const onUsePickupGenerally = makeOnUsePickupGenerally({
     runEvent("speech", "say", { what: "a big hug 🗝️", stylesBySpecialText });
   },
 });
-
-initPickupsEffects({
-  onUsePickupAtTrigger,
-  onUsePickupGenerally,
-  onUsePickupToTalk,
-});
+initPickupsEffects({ onUsePickupAtTrigger, onUsePickupGenerally, onUsePickupToTalk });

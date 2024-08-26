@@ -17,13 +17,13 @@ export const segmentTimesByCamera = {
     start: 0,
   },
   left_door_camera: {
-    start: 1.73333,
+    start: 1.75,
   },
   downstair_camera: {
-    start: 3.46667,
+    start: 3.5,
   },
   stairs_camera: {
-    start: 5.2,
+    start: 5.25,
   },
 } as const;
 export type CameraName = keyof typeof probesByCamera & keyof typeof segmentTimesByCamera;

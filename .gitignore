@@ -19,3 +19,4 @@ yarn-error.log*
 !backdrops.mp4
 !/src/assets/speechvids/*.mp4
 /src/assets/places/*/renders
+/src/assets/places/*/tmp

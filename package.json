@@ -24,11 +24,6 @@
     "check-updates": "npx npm-check-updates -i"
   },
   "dependencies": {
-    "@babylonjs/core": "7.2.1",
-    "@babylonjs/gui": "7.2.1",
-    "@babylonjs/inspector": "7.2.1",
-    "@babylonjs/loaders": "7.2.1",
-    "chootils": "^0.3.9",
     "delay": "^6.0.0",
     "react": "^18.2.0",
     "react-babylonjs": "^3.1.30",
@@ -38,8 +33,13 @@
     "stringz": "^2.1.0",
     "repond": "^0.17.4",
     "repond-movers": "^0.11.2",
-    "repond-events": "^0.2.5",
-    "prendy": "^0.11.6"
+    "repond-events": "^0.2.7",
+    "prendy": "^0.11.10",
+    "@babylonjs/core": "7.2.1",
+    "@babylonjs/gui": "7.2.1",
+    "@babylonjs/inspector": "7.2.1",
+    "@babylonjs/loaders": "7.2.1",
+    "chootils": "^0.3.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.78",
