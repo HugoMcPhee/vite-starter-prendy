@@ -18,7 +18,7 @@ export type CameraNameByPlace = {
 
 export type CameraNameFromPlace<
 T_Place extends keyof PlaceInfoByName
-> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"];
+> = keyof PlaceInfoByName[T_Place]["segmentNamesByCamera"];
 
 export type AnyCameraName = CameraNameByPlace[PlaceName];
 
@@ -37,13 +37,13 @@ export type SegmentNameByPlace = {
 };
 export type SegmentNameByCameraByPlace = {
   [P_Place in keyof PlaceInfoByName]: {
-    [P_Cam in keyof PlaceInfoByName[P_Place]["segmentTimesByCamera"]]: keyof PlaceInfoByName[P_Place]["segmentTimesByCamera"][P_Cam];
+    [P_Cam in keyof PlaceInfoByName[P_Place]["segmentNamesByCamera"]]: keyof PlaceInfoByName[P_Place]["segmentNamesByCamera"][P_Cam];
   };
 };
 export type SegmentNameFromCameraAndPlace<
   T_Place extends keyof PlaceInfoByName,
-  T_Cam extends keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"]
-> = keyof PlaceInfoByName[T_Place]["segmentTimesByCamera"][T_Cam];
+  T_Cam extends keyof PlaceInfoByName[T_Place]["segmentNamesByCamera"]
+> = keyof PlaceInfoByName[T_Place]["segmentNamesByCamera"][T_Cam];
 export type AnySegmentName = SegmentNameByPlace[PlaceName];
 
 export type TriggerNameByPlace = {

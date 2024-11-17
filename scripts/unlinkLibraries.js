@@ -15,7 +15,7 @@ async function runCommand(command, directory) {
 
 async function unlinkSelf(library) {
   const libraryPath = path.join(__dirname, "..", "..", library);
-  await runCommand("yarn unlink", libraryPath);
+  await runCommand("npm unlink", libraryPath);
 }
 
 async function unlinkFrom(library, target, isGameProject = false) {
@@ -24,7 +24,7 @@ async function unlinkFrom(library, target, isGameProject = false) {
     ? path.join(__dirname, "..") // Path for the game project, already at the correct level
     : path.join(__dirname, "..", "..", library); // Path for a library
 
-  await runCommand(`yarn unlink ${target}`, libraryPath);
+  await runCommand(`npm unlink ${target}`, libraryPath);
 }
 
 async function main() {
@@ -59,9 +59,9 @@ async function main() {
 
   // Reinstall packages for each library and the game project
   for (const library of libraries) {
-    await runCommand("yarn install --force", path.join(__dirname, "..", "..", library));
+    await runCommand("npm install --force", path.join(__dirname, "..", "..", library));
   }
-  await runCommand("yarn install --force", gameProjectPath); // for the game project
+  await runCommand("npm install --force", gameProjectPath); // for the game project
 }
 
 main();

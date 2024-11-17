@@ -24,7 +24,7 @@ async function linkLibrary(library) {
   const libraryPath = path.join(__dirname, "..", "..", library.name);
   console.log(`Linking ${library.name}...`);
   await updatePackageMain(libraryPath, "src/index.ts");
-  await runCommand("yarn link", libraryPath);
+  await runCommand("npm link", libraryPath);
 
   for (const command of library.additionalCommands) {
     await runCommand(command, libraryPath);
@@ -33,7 +33,7 @@ async function linkLibrary(library) {
   if (library.specialHandling === "babylonjs") {
     for (const module of ["core", "loaders"]) {
       const modulePath = path.join(libraryPath, "node_modules", "@babylonjs", module);
-      await runCommand("yarn link", modulePath);
+      await runCommand("npm link", modulePath);
     }
   }
 }
@@ -41,17 +41,17 @@ async function linkLibrary(library) {
 async function linkBabylonJSToGameProject() {
   const gameProjectPath = path.join(__dirname, "..");
   for (const module of ["@babylonjs/core", "@babylonjs/loaders"]) {
-    await runCommand(`yarn link ${module}`, gameProjectPath);
+    await runCommand(`npm link ${module}`, gameProjectPath);
   }
 }
 
 async function main() {
   const libraries = [
     { name: "repond", additionalCommands: [] },
-    { name: "repond-movers", additionalCommands: ["yarn link repond"] },
+    { name: "repond-movers", additionalCommands: ["npm link repond"] },
     {
       name: "prendy",
-      additionalCommands: ["yarn link repond", "yarn link repond-movers"],
+      additionalCommands: ["npm link repond", "npm link repond-movers"],
       specialHandling: "babylonjs",
     },
   ];
@@ -64,7 +64,7 @@ async function main() {
   const gameProjectPath = path.join(__dirname, "..");
   const allLibraries = ["repond", "repond-movers", "prendy"];
   for (const lib of allLibraries) {
-    await runCommand(`yarn link ${lib}`, gameProjectPath);
+    await runCommand(`npm link ${lib}`, gameProjectPath);
   }
 
   // Link BabylonJS modules to the game project

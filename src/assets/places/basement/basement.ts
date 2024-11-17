@@ -1,32 +1,73 @@
 import modelFile from "./basement.glb";
 
-import backdropVideoFile from "./backdrops.mp4";
-import first_cam_probe_image from "./first_cam_probe.env";
-import waterfall_cam_probe_image from "./waterfall_cam_probe.env";
+import first_cam_probe_image from "./probes/first_cam.env";
+import waterfall_cam_probe_image from "./probes/waterfall_cam.env";
+
+import first_cam_start_color_1 from "./backdrops/first_cam_start_color_1.ktx2";
+import first_cam_start_depth_1 from "./backdrops/first_cam_start_depth_1.ktx2";
+import first_cam_start_color_2 from "./backdrops/first_cam_start_color_2.ktx2";
+import first_cam_start_depth_2 from "./backdrops/first_cam_start_depth_2.ktx2";
+import waterfall_cam_start_color_1 from "./backdrops/waterfall_cam_start_color_1.ktx2";
+import waterfall_cam_start_depth_1 from "./backdrops/waterfall_cam_start_depth_1.ktx2";
+import waterfall_cam_start_color_2 from "./backdrops/waterfall_cam_start_color_2.ktx2";
+import waterfall_cam_start_depth_2 from "./backdrops/waterfall_cam_start_depth_2.ktx2";
+
+export const backdropsByCamera = {
+  "first_cam": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: first_cam_start_color_1,
+          depth: first_cam_start_depth_1,
+        },
+        {
+          color: first_cam_start_color_2,
+          depth: first_cam_start_depth_2,
+        },
+      ],
+    },
+  },
+  "waterfall_cam": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: waterfall_cam_start_color_1,
+          depth: waterfall_cam_start_depth_1,
+        },
+        {
+          color: waterfall_cam_start_color_2,
+          depth: waterfall_cam_start_depth_2,
+        },
+      ],
+    },
+  },
+};
 
 export const probesByCamera = {
   first_cam: first_cam_probe_image,
   waterfall_cam: waterfall_cam_probe_image,
 };
-export const segmentTimesByCamera = {
-  first_cam: {
-    start: 0,
-  },
-  waterfall_cam: {
-    start: 1.75,
-  },
+export const segmentNamesByCamera = {
+  first_cam: [
+    'start',
+  ],
+  waterfall_cam: [
+    'start',
+  ],
 } as const;
-export type CameraName = keyof typeof probesByCamera & keyof typeof segmentTimesByCamera;
+export type CameraName = keyof typeof probesByCamera & keyof typeof segmentNamesByCamera;
 export const cameraNames = Object.keys(probesByCamera) as Readonly<CameraName[]>;
 
-export const videoFiles = {
-  backdrop: backdropVideoFile,
-}
-export const segmentDurations = {
-  start: 1.6666666666666667,
-};
-export type SegmentName = keyof typeof segmentDurations;
-export const segmentNames = Object.keys(segmentDurations) as SegmentName[];
+export const segmentNames = [ 
+  'start', 
+] as const; 
+export type SegmentName = typeof segmentNames[number];
 
 export const wallNames = [
   "wall_1",
@@ -56,15 +97,14 @@ export type SoundspotName = typeof soundspotNames[number];
 
 export const placeInfo = {
   modelFile,
-  videoFiles,
+  backdropsByCamera,
   cameraNames,
-  segmentDurations,
   segmentNames,
+  segmentNamesByCamera,
   wallNames,
   floorNames,
   triggerNames,
   spotNames,
   soundspotNames,
   probesByCamera,
-  segmentTimesByCamera,
 } as const;

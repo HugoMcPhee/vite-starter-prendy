@@ -5,6 +5,8 @@ declare module "*.webm" {
 
 declare module "*.mp4" {}
 
+declare module "*.ktx2" {}
+
 declare module "*.mp3" {}
 
 declare module "*.glb" {

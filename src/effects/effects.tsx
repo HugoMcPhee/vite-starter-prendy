@@ -27,7 +27,6 @@ export const allEffectGroups = initEffectGroups({
   ...prendyEffectGroups,
 });
 
-console.log("initParamEffectGroups");
 export const allParamEffectGroups = initParamEffectGroups({
   ...prendyParamEffectGroups,
 });

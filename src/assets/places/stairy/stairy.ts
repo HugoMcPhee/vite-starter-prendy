@@ -1,10 +1,97 @@
 import modelFile from "./stairy.glb";
 
-import backdropVideoFile from "./backdrops.mp4";
-import room_camera_probe_image from "./room_camera_probe.env";
-import left_door_camera_probe_image from "./left_door_camera_probe.env";
-import downstair_camera_probe_image from "./downstair_camera_probe.env";
-import stairs_camera_probe_image from "./stairs_camera_probe.env";
+import room_camera_probe_image from "./probes/room_camera.env";
+import left_door_camera_probe_image from "./probes/left_door_camera.env";
+import downstair_camera_probe_image from "./probes/downstair_camera.env";
+import stairs_camera_probe_image from "./probes/stairs_camera.env";
+
+import room_camera_start_color_1 from "./backdrops/room_camera_start_color_1.ktx2";
+import room_camera_start_depth_1 from "./backdrops/room_camera_start_depth_1.ktx2";
+import room_camera_start_color_2 from "./backdrops/room_camera_start_color_2.ktx2";
+import room_camera_start_depth_2 from "./backdrops/room_camera_start_depth_2.ktx2";
+import left_door_camera_start_color_1 from "./backdrops/left_door_camera_start_color_1.ktx2";
+import left_door_camera_start_depth_1 from "./backdrops/left_door_camera_start_depth_1.ktx2";
+import left_door_camera_start_color_2 from "./backdrops/left_door_camera_start_color_2.ktx2";
+import left_door_camera_start_depth_2 from "./backdrops/left_door_camera_start_depth_2.ktx2";
+import downstair_camera_start_color_1 from "./backdrops/downstair_camera_start_color_1.ktx2";
+import downstair_camera_start_depth_1 from "./backdrops/downstair_camera_start_depth_1.ktx2";
+import downstair_camera_start_color_2 from "./backdrops/downstair_camera_start_color_2.ktx2";
+import downstair_camera_start_depth_2 from "./backdrops/downstair_camera_start_depth_2.ktx2";
+import stairs_camera_start_color_1 from "./backdrops/stairs_camera_start_color_1.ktx2";
+import stairs_camera_start_depth_1 from "./backdrops/stairs_camera_start_depth_1.ktx2";
+import stairs_camera_start_color_2 from "./backdrops/stairs_camera_start_color_2.ktx2";
+import stairs_camera_start_depth_2 from "./backdrops/stairs_camera_start_depth_2.ktx2";
+
+export const backdropsByCamera = {
+  "room_camera": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: room_camera_start_color_1,
+          depth: room_camera_start_depth_1,
+        },
+        {
+          color: room_camera_start_color_2,
+          depth: room_camera_start_depth_2,
+        },
+      ],
+    },
+  },
+  "left_door_camera": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: left_door_camera_start_color_1,
+          depth: left_door_camera_start_depth_1,
+        },
+        {
+          color: left_door_camera_start_color_2,
+          depth: left_door_camera_start_depth_2,
+        },
+      ],
+    },
+  },
+  "downstair_camera": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: downstair_camera_start_color_1,
+          depth: downstair_camera_start_depth_1,
+        },
+        {
+          color: downstair_camera_start_color_2,
+          depth: downstair_camera_start_depth_2,
+        },
+      ],
+    },
+  },
+  "stairs_camera": {
+    "start": {
+      frameRate: 12.0,
+      totalFrames: 20.0,
+      maxFramesPerRow: 4,
+      textures: [
+        {
+          color: stairs_camera_start_color_1,
+          depth: stairs_camera_start_depth_1,
+        },
+        {
+          color: stairs_camera_start_color_2,
+          depth: stairs_camera_start_depth_2,
+        },
+      ],
+    },
+  },
+};
 
 export const probesByCamera = {
   room_camera: room_camera_probe_image,
@@ -12,32 +99,28 @@ export const probesByCamera = {
   downstair_camera: downstair_camera_probe_image,
   stairs_camera: stairs_camera_probe_image,
 };
-export const segmentTimesByCamera = {
-  room_camera: {
-    start: 0,
-  },
-  left_door_camera: {
-    start: 1.75,
-  },
-  downstair_camera: {
-    start: 3.5,
-  },
-  stairs_camera: {
-    start: 5.25,
-  },
+export const segmentNamesByCamera = {
+  room_camera: [
+    'start',
+  ],
+  left_door_camera: [
+    'start',
+  ],
+  downstair_camera: [
+    'start',
+  ],
+  stairs_camera: [
+    'start',
+  ],
 } as const;
-export type CameraName = keyof typeof probesByCamera & keyof typeof segmentTimesByCamera;
+export type CameraName = keyof typeof probesByCamera & keyof typeof segmentNamesByCamera;
 export const cameraNames = Object.keys(probesByCamera) as Readonly<CameraName[]>;
 
-export const videoFiles = {
-  backdrop: backdropVideoFile,
-}
-export const segmentDurations = {
-  start: 1.6666666666666667,
-  light_flicker: 1.6666666666666667,
-};
-export type SegmentName = keyof typeof segmentDurations;
-export const segmentNames = Object.keys(segmentDurations) as SegmentName[];
+export const segmentNames = [ 
+  'start', 
+  'light_flicker', 
+] as const; 
+export type SegmentName = typeof segmentNames[number];
 
 export const wallNames = [
   "wall_1",
@@ -76,15 +159,14 @@ export type SoundspotName = typeof soundspotNames[number];
 
 export const placeInfo = {
   modelFile,
-  videoFiles,
+  backdropsByCamera,
   cameraNames,
-  segmentDurations,
   segmentNames,
+  segmentNamesByCamera,
   wallNames,
   floorNames,
   triggerNames,
   spotNames,
   soundspotNames,
   probesByCamera,
-  segmentTimesByCamera,
 } as const;

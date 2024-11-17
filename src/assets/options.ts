@@ -1,9 +1,9 @@
 import { makePrendyOptions } from "prendy";
 
 export const PRENDY_OPTIONS = makePrendyOptions({
-  place: "stairy",
+  place: "basement",
   segment: "start",
-  camera: "room_camera",
+  camera: "first_cam",
   heldPickups: [],
   playerCharacter: "walker",
   playerAnimations: { idle: "walker_idle", walking: "walker_walking" },

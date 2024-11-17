@@ -1,5 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+src/assets/**/*.{hdr,env,mp3,mp4,png,jpg,jpeg,gltf,ktx2,blend} filter=lfs diff=lfs merge=lfs -text
 src/assets/**/*.{hdr filter=lfs diff=lfs merge=lfs -text
 env filter=lfs diff=lfs merge=lfs -text
 mp3 filter=lfs diff=lfs merge=lfs -text
