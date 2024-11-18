@@ -21,7 +21,8 @@
     "preview": "vite preview",
     "link-libraries": "sudo node scripts/linkLibraries.js",
     "unlink-libraries": "sudo node scripts/unlinkLibraries.js",
-    "check-updates": "npx npm-check-updates -i"
+    "check-updates": "npx npm-check-updates -i",
+    "clean-git-history": "bfg --delete-files '{*.png,*.jpg,*.jpeg,*.gif,*.glb,*.gltf,*.ktx2,*.mp3,*.mp4,*.env,*.hdr}' && git reflog expire --expire=now --all && git gc --prune=now --aggressive && git push --force"
   },
   "dependencies": {
     "@babylonjs/gui": "7.2.1",
